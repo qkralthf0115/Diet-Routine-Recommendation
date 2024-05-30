@@ -1,0 +1,31 @@
+Exercise,FocusArea,BurnedCalories
+Push-ups,Upper Body,50
+Pull-ups,Upper Body,100
+Dumbbell Bench Press,Upper Body,80
+Shoulder Press,Upper Body,60
+Bicep Curls,Upper Body,40
+Tricep Dips,Upper Body,50
+Bent Over Rows,Upper Body,70
+Deadlifts,Upper Body,90
+Chest Flyes,Upper Body,60
+Lat Pulldowns,Upper Body,80
+Squats,Lower Body,70
+Lunges,Lower Body,50
+Leg Press,Lower Body,90
+Calf Raises,Lower Body,40
+Leg Curls,Lower Body,50
+Leg Extensions,Lower Body,60
+Glute Bridges,Lower Body,70
+Step-Ups,Lower Body,50
+Hip Thrusts,Lower Body,80
+Donkey Kicks,Lower Body,40
+Planks,Core,30
+Sit-ups,Core,50
+Russian Twists,Core,40
+Leg Raises,Core,30
+Bicycle Crunches,Core,50
+Mountain Climbers,Core,40
+Hanging Leg Raises,Core,60
+Side Planks,Core,30
+Toe Touches,Core,20
+Flutter Kicks,Core,30
