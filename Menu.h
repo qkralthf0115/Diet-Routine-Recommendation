@@ -6,9 +6,9 @@
 class Menu
 {
 private:
-	std::vector<std::shared_ptr<Command>> command;
+	std::vector<Command*> command;
 public:
-	void addCommand(std::shared_ptr<Command> command);
-	void executeCommand();
+	void addCommand(Command* command);
+	void executeCommand(int index);
 	void displayCommand();
 };
