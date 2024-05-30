@@ -1,12 +1,11 @@
 #include <iostream>
 #include "ExercisePlan.h"
-using namespace std;
 
 class BodyPartPlan : public ExercisePlan {
 private:
-  string bodyPart;
+  std::string bodyPart;
 public:
   void generateExercisePlan() {
-    cout << "Exercise plan for " << bodyPart << " generated." << endl;
+    std::cout << "Exercise plan for " << bodyPart << " generated." << std::endl;
   }
 };
