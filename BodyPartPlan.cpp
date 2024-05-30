@@ -1,11 +1,6 @@
 #include <iostream>
-#include "ExercisePlan.h"
+#include "BodyPartPlan.h"
 
-class BodyPartPlan : public ExercisePlan {
-private:
-  std::string bodyPart;
-public:
-  void generateExercisePlan() {
-    std::cout << "Exercise plan for " << bodyPart << " generated." << std::endl;
-  }
-};
+void BodyPartPlan::generatePlan() {
+  std::cout << "Body part exercise plan generated." << std::endl;
+}

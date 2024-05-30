@@ -5,5 +5,5 @@ private:
   std::string name;
   double caloriesBurned;
 public:
-  virtual void generateExercisePlan() = 0;
+  virtual void generatePlan() = 0;
 };

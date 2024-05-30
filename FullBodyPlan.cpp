@@ -1,9 +1,6 @@
 #include <iostream>
-#include "ExercisePlan.h"
+#include "FullBodyPlan.h"
 
-class FullBodyPlan : public ExercisePlan {
-public:
-  void generateExercisePlan() {
-    std::cout << "Full body exercise plan generated." << std::endl;
-  }
-};
+void FullBodyPlan::generatePlan() {
+  std::cout << "Full body exercise plan generated." << std::endl;
+}
