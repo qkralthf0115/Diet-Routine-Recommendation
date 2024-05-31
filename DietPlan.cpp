@@ -1,4 +1,3 @@
-//전체 식단 계획 관리, 일주일 식단 생성
 #include<iostream>
 #include"DietPlan.h"
 

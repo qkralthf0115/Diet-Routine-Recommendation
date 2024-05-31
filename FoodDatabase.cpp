@@ -1,5 +1,3 @@
-//음식 데이터베이스, 파일에서 음식 목록을 로드하고, 제공된 제외 목록을 기준으로 필터링
-
 #include<fstream>
 #include"FoodDatabase.h"
 
