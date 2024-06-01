@@ -1,42 +1,41 @@
 #include <iostream>
-#include <memory>
+#include <string>
+#include <vector>
 #include "ExercisePlan.h"
+#include "WorkoutDatabase.cpp"
+#include "BodyArea.h
 
-class ExerciseCommand {
+class ExerciseCommand : public Command {
 private:
-  UserInfo& userInfo;
-  ExercisePlan* exercisePlan;
-  ExerciseData& db;
+  BodyArea stringToBodyArea(const std::string& areaStr) {
+    if (areaStr == "UpperBody") return BodyArea::UpperBody;
+    else if (areaStr == "LowerBody") return BodyArea::LowerBody;
+    else if (areaStr == "Core") return BodyArea::Core;
+    else if (areaStr == "Back") return BodyArea::Back;
+    else if (areaStr == "FullBody") return BodyArea::FullBody;
+    else throw std::invalid_argument("Unknown body area: " + areaStr);
+  }
 public:
-  ExerciseCommand(UserInfo& ui, ExerciseDatae& database) : userInfo(ui), exercisePlan(nullptr), db(database) {}
   virtual void execute() = 0;
-  void displayPlan();
 };
 
 
 void ExerciseCommand::execute() {
-  std::string targetArea;
-  std::cout << "관심 있는 신체 부위가 있나요? (상체, 하체, 코어, 등, 전신): ";
-  std::cin >> targetArea;
+  std::string targetAreaStr;
+  int exerciseDays;
 
-  if (targetArea == "전신" || targetArea == "") {
-    exercisePlan = new FullBodyPlan();
-  }
-  else {
-    exercisePlan = new BodyPartPlan(targetArea);
-  }
+  std::cout << "Enter target body area (UpperBody, LowerBody, Core, Back, FullBody): ";
+  std::cin >> targetAreaStr;
+  BodyArea targetArea = stringToBodyArea(targetAreaStr);
 
-  exercisePlan->generatePlan();
-  displayPlan();
-  delete exercisePlan;
-}
+  std::cout << "Enter number of exercise days per week: ";
+  std::cin >> exerciseDays;
 
-void ExerciseCommand::displayPlan() {
-  std::cout << std::endl << "추천 운동 루틴 (" << userInfo.workoutDaysPerWeek << "일):" << std::endl;
-  for (int i = 0; i < userInfo.workoutDaysPerWeek; ++i) {
-    std::cout << "Day " << i + 1 << ":" << std::endl;
-    for (const auto& exercise : exercisePlan->exercises) {
-      std::cout << "- " << exercise.name << " (칼로리 소모량: " << exercise.burnedCalories << ")" << std::endl;
-    }
-  }
+  WorkoutDatabase workoutDb;
+  workoutDb.loadWorkoutList("ExerciseData.txt");
+  auto filteredWorkouts = workoutDb.filterByArea(targetArea);
+
+  ExercisePlan exercisePlan;
+  exercisePlan.generatePlan(filteredWorkouts, exerciseDays);
+  exercisePlan.printPlan();
 }

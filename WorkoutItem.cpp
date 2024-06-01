@@ -1,11 +1,13 @@
 #include <string>
+#include "BodyArea.h"
 
-class Exercise {
+class WorkoutItem {
 private:
   std::string name;
-  std::string focusArea;
-  int caloriesBurned = 0;
+  BodyArea focusArea;
+  int caloriesBurned;
   std::string videoLink;
+
 public:
   WorkoutItem(const std::string& name, BodyArea focusArea, int caloriesBurned, const std::string& videoLink)
     : name(name), focusArea(focusArea), caloriesBurned(caloriesBurned), videoLink(videoLink) {
