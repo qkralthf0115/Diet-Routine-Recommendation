@@ -15,8 +15,8 @@ void ExerciseCommand::execute() override {
   int dailyCalories = calculateDailyCalories(); // You need to implement this method
 
   WorkoutDatabase workoutDb;
-  workoutDb.loadWorkoutList("ExerciseData.txt");
-  auto filteredWorkouts = workoutDb.getWorkoutListByArea(targetArea);
+  workoutDb.loadWorkoutList("Exercise_Data.txt");
+  auto filteredWorkouts = workoutDb.filterByArea(targetArea);
 
   ExercisePlan exercisePlan;
   exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
