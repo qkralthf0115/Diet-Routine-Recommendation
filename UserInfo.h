@@ -9,22 +9,21 @@ private:
     std::string gender;
     double weight;
     double height;
-    int exerciseLevel;
     double wantedWeight;
+    int week;
 public:
-    UseInfo(std::string& name, int age, std::string& gender, double weight, double height, int exerciseLevel, double wantedWeight);
+    UserInfo(std::string name, int age, std::string gender, double weight, double height, double wantedWeight, int week);
     void inputInfo();
 
-    std::string& getName() const;
+    std::string getName() const;
     int getAge() const;
-    std::string& getGender() const;
+    std::string getGender() const;
     double getWeight() const;
     double getHeight() const;
-    int getExerciseLevel() const;
     double getWantedWeight() const;
+    int getWeek() const;
 
-    void calculateFoodCalories();
-    void calculateExerciseCalories();
+    double calculateFoodCalories();
+    double calculateExerciseCalories();
 
-    
 };
