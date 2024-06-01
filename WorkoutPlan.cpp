@@ -1,21 +1,19 @@
-#include <vector>
-#include "WorkoutItem.cpp"
+#include "WorkoutPlan.h"
 
-class WorkoutPlan {
-private:
-  std::vector<WorkoutItem> workoutItems;
-  int dailyCalories = 500;
+WorkoutPlan::WorkoutPlan() {
+  srand(static_cast<unsigned int>(time(0))); // Seed random number generator
+}
 
-public:
-  void generateWorkout(const std::vector<WorkoutItem>& filteredWorkouts) {
-    workoutItems = filteredWorkouts;
+void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, int dailyCalories) {
+  dailyWorkouts.clear();
+  int totalCalories = 0;
+  while (totalCalories < dailyCalories) {
+    int randomIndex = rand() % workoutList.size();
+    dailyWorkouts.push_back(workoutList[randomIndex]);
+    totalCalories += workoutList[randomIndex].getCaloriesBurned();
   }
+}
 
-  std::vector<WorkoutItem> getWorkoutItems() const {
-    return workoutItems;
-  }
-
-  int getDailyCalories() const {
-    return dailyCalories;
-  }
-};
+const std::vector<WorkoutItem>& WorkoutPlan::getDailyWorkouts() const {
+  return dailyWorkouts;
+}
