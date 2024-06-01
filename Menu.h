@@ -7,6 +7,7 @@ class Menu
 {
 private:
 	std::vector<Command*> command;
+	std::string name;
 public:
 	void addCommand(Command* command);
 	void executeCommand(int index);
