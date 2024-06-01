@@ -1,9 +1,12 @@
 #include <iostream>
+#include <vector>
+#include "ExerciseData.cpp"
 
 class ExercisePlan {
 private:
-  std::string name;
-  double caloriesBurned;
+  std::vector<Exercise> exercises;
+
+
 public:
-  virtual void generatePlan() = 0;
+  virtual void generatePlan(const ExerciseData& db) = 0;
 };
