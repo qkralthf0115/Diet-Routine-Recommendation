@@ -21,7 +21,7 @@ void Menu::displayMenu() {
 }
 
 void Menu::setMenu() {
-	Command* addInfoCommand = new AddInformationCommand();
+	Command* addInfoCommand = new InputInfoCommand();
 	Command* exerciseCommand = new ExerciseCommand();
 	Command* mealCommand = new MealCommand();
 

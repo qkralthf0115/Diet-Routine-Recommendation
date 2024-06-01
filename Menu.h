@@ -3,6 +3,8 @@
 #include <Memory>
 #include "Command.h"
 #include "ExerciseCommand.h"
+#include "MealCommand.h"
+#include "InputInfoCommand.h"
 
 class Menu
 {
