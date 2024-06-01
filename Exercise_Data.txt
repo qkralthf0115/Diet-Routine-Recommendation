@@ -1,4 +1,3 @@
-Exercise,FocusArea,BurnedCalories,YouTubeLink
 Push-ups,Upper Body,200,https://www.youtube.com/watch?v=_l3ySVKYVJ8
 Pull-ups,Upper Body,400,https://www.youtube.com/watch?v=eGo4IYlbE5g
 Dumbbell Bench Press,Upper Body,320,https://www.youtube.com/watch?v=gRVjAtPip0Y
