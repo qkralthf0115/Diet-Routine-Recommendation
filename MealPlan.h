@@ -1,12 +1,15 @@
+//create one meal
 #pragma once
 #include"FoodDatabase.h"
+#include"userInfo.h"
 
 class MealPlan
 {
 private:
 	std::vector<FoodItem> mealItem;
+	int maxCalories;
 public:
-	MealPlan(std::vector<FoodItem> mealItem);
-	void generateMeal(FoodDatabase& db, int maxCalories, std::vector<std::string>& exclusion);
-	void displayMeal();
+	MealPlan(UserInfo& user);
+	void generateMeal(FoodDatabase& db, UserInfo& user);
+	void displayMeal()const;
 };

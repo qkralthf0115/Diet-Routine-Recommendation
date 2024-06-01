@@ -11,13 +11,16 @@ void FoodDatabase::loadFoodList(std::string filename)
 			foodList.emplace_back(name, calories);
 		}
 	}
-
-std::vector<FoodItem> FoodDatabase::getFoodList(std::vector<std::string>& exclude)
+void FoodDatabase::setExclusion(std::vector<std::string>& exclude)
+{
+	this->exclusion = exclude;
+}
+std::vector<FoodItem> FoodDatabase::getFoodList()
 	{
 		std::vector<FoodItem> excludedList;
 		for (auto& food : foodList)
 		{
-			if (std::find(exclude.begin(), exclude.end(), food.getName()) == exclude.end())
+			if (std::find(exclusion.begin(), exclusion.end(), food.getName()) == exclusion.end())
 			{
 				excludedList.push_back(food);
 			}
