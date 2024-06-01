@@ -1,36 +1,36 @@
-Exercise,FocusArea,BurnedCalories
-Push-ups,Upper Body,800
-Pull-ups,Upper Body,1600
-Dumbbell Bench Press,Upper Body,1280
-Shoulder Press,Upper Body,960
-Bicep Curls,Upper Body,640
-Tricep Dips,Upper Body,800
-Bent Over Rows,Upper Body,1120
-Deadlifts,Upper Body,1440
-Chest Flyes,Upper Body,960
-Lat Pulldowns,Upper Body,1280
-Squats,Lower Body,1120
-Lunges,Lower Body,800
-Leg Press,Lower Body,1440
-Calf Raises,Lower Body,640
-Leg Curls,Lower Body,800
-Leg Extensions,Lower Body,960
-Glute Bridges,Lower Body,1120
-Step-Ups,Lower Body,800
-Hip Thrusts,Lower Body,1280
-Donkey Kicks,Lower Body,640
-Planks,Core,480
-Sit-ups,Core,800
-Russian Twists,Core,640
-Leg Raises,Core,480
-Bicycle Crunches,Core,800
-Mountain Climbers,Core,640
-Hanging Leg Raises,Core,960
-Side Planks,Core,480
-Toe Touches,Core,320
-Flutter Kicks,Core,480
-Burpees,Full Body,400
-Jumping Jacks,Full Body,320
-Mountain Climbers,Full Body,360
-Bear Crawls,Full Body,340
-Tuck Jumps,Full Body,380
+Exercise,FocusArea,BurnedCalories,YouTubeLink
+Push-ups,Upper Body,200,https://www.youtube.com/watch?v=_l3ySVKYVJ8
+Pull-ups,Upper Body,400,https://www.youtube.com/watch?v=eGo4IYlbE5g
+Dumbbell Bench Press,Upper Body,320,https://www.youtube.com/watch?v=gRVjAtPip0Y
+Shoulder Press,Upper Body,240,https://www.youtube.com/watch?v=2yjwXTZQDDI
+Bicep Curls,Upper Body,160,https://www.youtube.com/watch?v=ykJmrZ5v0Oo
+Tricep Dips,Upper Body,200,https://www.youtube.com/watch?v=0326dy_-CzM
+Bent Over Rows,Upper Body,280,https://www.youtube.com/watch?v=roCP6wCXPqo
+Deadlifts,Upper Body,360,https://www.youtube.com/watch?v=r4MzxtBKyNE
+Chest Flyes,Upper Body,240,https://www.youtube.com/watch?v=eozdVDA78K0
+Lat Pulldowns,Upper Body,320,https://www.youtube.com/watch?v=CAwf7n6Luuc
+Squats,Lower Body,280,https://www.youtube.com/watch?v=aclHkVaku9U
+Lunges,Lower Body,200,https://www.youtube.com/watch?v=QOVaHwm-Q6U
+Leg Press,Lower Body,360,https://www.youtube.com/watch?v=1xMaFs0L3ao
+Calf Raises,Lower Body,160,https://www.youtube.com/watch?v=-M4-G8p8fmc
+Leg Curls,Lower Body,200,https://www.youtube.com/watch?v=JOBRjFSfZVg
+Leg Extensions,Lower Body,240,https://www.youtube.com/watch?v=YyvSfVjQeL0
+Glute Bridges,Lower Body,280,https://www.youtube.com/watch?v=8bbE64NuDTU
+Step-Ups,Lower Body,200,https://www.youtube.com/watch?v=QCqWzb-9Sy8
+Hip Thrusts,Lower Body,320,https://www.youtube.com/watch?v=YYNvGnJHZio
+Donkey Kicks,Lower Body,160,https://www.youtube.com/watch?v=2ooSpsI3BfE
+Planks,Core,120,https://www.youtube.com/watch?v=pSHjTRCQxIw
+Sit-ups,Core,200,https://www.youtube.com/watch?v=1fbU_MkV7NE
+Russian Twists,Core,160,https://www.youtube.com/watch?v=wkD8rjkodUI
+Leg Raises,Core,120,https://www.youtube.com/watch?v=l4kQd9eWclE
+Bicycle Crunches,Core,200,https://www.youtube.com/watch?v=v6XH7wo6ixA
+Mountain Climbers,Core,160,https://www.youtube.com/watch?v=nmwgirgXLYM
+Hanging Leg Raises,Core,240,https://www.youtube.com/watch?v=vGAKUNxkYIE
+Side Planks,Core,120,https://www.youtube.com/watch?v=KPlxANSaE7k
+Toe Touches,Core,80,https://www.youtube.com/watch?v=SeHi5HSTd7c
+Flutter Kicks,Core,120,https://www.youtube.com/watch?v=K1Jhzu3I9bE
+Burpees,Full Body,400,https://www.youtube.com/watch?v=TU8QYVW0gDU
+Jumping Jacks,Full Body,320,https://www.youtube.com/watch?v=dmYwZH_BNd0
+Mountain Climbers,Full Body,360,https://www.youtube.com/watch?v=Yxn1o45pTRQ
+Bear Crawls,Full Body,340,https://www.youtube.com/watch?v=UoC_O3HzsH0
+Tuck Jumps,Full Body,380,https://www.youtube.com/watch?v=ZmoH8XQMj8w
