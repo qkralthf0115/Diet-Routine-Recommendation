@@ -35,3 +35,7 @@ BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
 int ExerciseCommand::calculateDailyCalories() {
   return 500;
 }
+
+std::string ExerciseCommand::getName() const {
+  return name;
+}
