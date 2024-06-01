@@ -7,7 +7,7 @@ WorkoutPlan::WorkoutPlan() {
 void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, int dailyCalories) {
   dailyWorkouts.clear();
   int totalCalories = 0;
-  while (totalCalories < dailyCalories) {
+  while (dailyCalories - 500 <= totalCalories && totalCalories <= dailyCalories + 500) {
     int randomIndex = rand() % workoutList.size();
     dailyWorkouts.push_back(workoutList[randomIndex]);
     totalCalories += workoutList[randomIndex].getCaloriesBurned();
