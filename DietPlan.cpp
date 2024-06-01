@@ -3,14 +3,13 @@
 
 DietPlan::DietPlan() {}
 
-void DietPlan::generatePlan()
+void DietPlan::generatePlan(std::vector<FoodList> &foodlist)
 {
-	FoodDatabase db;
-	db.getFoodList();
+
 	for (int i = 0; i < 21; ++i)
 	{
 		auto mealPlan = std::make_shared<MealPlan>();
-		mealPlan->generateMeal(db);
+		mealPlan->generateMeal(foodlist);
 		weeklyPlan.push_back(mealPlan);
 	}
 
