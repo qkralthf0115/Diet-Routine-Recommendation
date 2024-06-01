@@ -1,5 +1,5 @@
 #include <iostream>
-#include "BodyPartPlan.h"
+#include "BodyPartPlan.cpp"
 #include "ExercisePlan.h"
 
 class BodyPartPlan : public ExercisePlan {
