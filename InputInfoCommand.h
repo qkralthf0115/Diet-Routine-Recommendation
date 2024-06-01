@@ -8,6 +8,6 @@ class InputInfoCommand: public Command
 private:
     std::shared_ptr<UserInfo> userInfo;
 public:
-    InputInfoCommand(std::shared_ptr<UserInfo> userInfo);
+    InputInfoCommand();
     void execute() override;
 }
