@@ -1,3 +1,4 @@
+//stores information of the food item including name, calories
 #pragma once
 #include<string>
 

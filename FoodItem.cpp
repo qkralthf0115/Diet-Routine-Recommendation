@@ -1,4 +1,3 @@
-//음식 이름과 칼로리
 #include<string>
 #include"FoodItem.h"
 
