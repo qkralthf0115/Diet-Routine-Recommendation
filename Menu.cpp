@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void Menu::addCommand(int index, std::shared_ptr<Command> command) {
+void Menu::addCommand(int index, Command* command) {
 	this->commands.push_back(command);
 }
 
@@ -14,16 +14,16 @@ void Menu::selectCommand(int index) {
 	}
 }
 
-void Menu::displayCommand() {
-	for (int i = 0; i < this->command.size(); i++) {
-		std::cout << i << ". " << this->command[i]->getName() << std::endl;
+void Menu::displayMenu() {
+	for (int i = 0; i < this->commands.size(); i++) {
+		std::cout << i << ". " << this->commands[i]->getName() << std::endl;
 	}
 }
 
 void Menu::setMenu() {
-	std::shared_ptr<Command> addInfoCommand = std::make_shared<AddInformationCommand>();
-	std::shared_ptr<Command> exerciseCommand = std::make_shared<ExerciseRecommendationCommand>();
-	std::shared_ptr<Command> mealCommand = std::make_shared<MealRecommendationCommand>();
+	Command* addInfoCommand = new AddInformationCommand();
+	Command* exerciseCommand = new ExerciseCommand();
+	Command* mealCommand = new MealCommand();
 
 	addCommand(1, addInfoCommand);
 	addCommand(2, exerciseCommand);
