@@ -1,5 +1,4 @@
-#ifndef BODYAREA_H
-#define BODYAREA_H
+#pragma once
 
 enum class BodyArea {
   UpperBody,
@@ -8,5 +7,3 @@ enum class BodyArea {
   Back,
   FullBody
 };
-
-#endif
