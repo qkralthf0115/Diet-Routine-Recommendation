@@ -1,31 +1,36 @@
 Exercise,FocusArea,BurnedCalories
-Push-ups,Upper Body,50
-Pull-ups,Upper Body,100
-Dumbbell Bench Press,Upper Body,80
-Shoulder Press,Upper Body,60
-Bicep Curls,Upper Body,40
-Tricep Dips,Upper Body,50
-Bent Over Rows,Upper Body,70
-Deadlifts,Upper Body,90
-Chest Flyes,Upper Body,60
-Lat Pulldowns,Upper Body,80
-Squats,Lower Body,70
-Lunges,Lower Body,50
-Leg Press,Lower Body,90
-Calf Raises,Lower Body,40
-Leg Curls,Lower Body,50
-Leg Extensions,Lower Body,60
-Glute Bridges,Lower Body,70
-Step-Ups,Lower Body,50
-Hip Thrusts,Lower Body,80
-Donkey Kicks,Lower Body,40
-Planks,Core,30
-Sit-ups,Core,50
-Russian Twists,Core,40
-Leg Raises,Core,30
-Bicycle Crunches,Core,50
-Mountain Climbers,Core,40
-Hanging Leg Raises,Core,60
-Side Planks,Core,30
-Toe Touches,Core,20
-Flutter Kicks,Core,30
+Push-ups,Upper Body,800
+Pull-ups,Upper Body,1600
+Dumbbell Bench Press,Upper Body,1280
+Shoulder Press,Upper Body,960
+Bicep Curls,Upper Body,640
+Tricep Dips,Upper Body,800
+Bent Over Rows,Upper Body,1120
+Deadlifts,Upper Body,1440
+Chest Flyes,Upper Body,960
+Lat Pulldowns,Upper Body,1280
+Squats,Lower Body,1120
+Lunges,Lower Body,800
+Leg Press,Lower Body,1440
+Calf Raises,Lower Body,640
+Leg Curls,Lower Body,800
+Leg Extensions,Lower Body,960
+Glute Bridges,Lower Body,1120
+Step-Ups,Lower Body,800
+Hip Thrusts,Lower Body,1280
+Donkey Kicks,Lower Body,640
+Planks,Core,480
+Sit-ups,Core,800
+Russian Twists,Core,640
+Leg Raises,Core,480
+Bicycle Crunches,Core,800
+Mountain Climbers,Core,640
+Hanging Leg Raises,Core,960
+Side Planks,Core,480
+Toe Touches,Core,320
+Flutter Kicks,Core,480
+Burpees,Full Body,400
+Jumping Jacks,Full Body,320
+Mountain Climbers,Full Body,360
+Bear Crawls,Full Body,340
+Tuck Jumps,Full Body,380
