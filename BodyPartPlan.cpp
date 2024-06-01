@@ -1,17 +1,17 @@
 #include <iostream>
-#include "BodyPartPlan.cpp"
 #include "ExercisePlan.h"
 
 class BodyPartPlan : public ExercisePlan {
 private:
   std::string bodyPart;
 public:
-  BodyPartPlan(std::string bodyPart) : bodyPart(bodyPart) {}
-  void generatePlan() {}
+  BodyPartPlan(std::string& part) : bodyPart(part) {}
+  void generatePlan(const ExerciseData& db) {}
 };
 
 void BodyPartPlan::generatePlan(const ExerciseData& db) {
   exercises = db.getExercisesByFocusArea(bodyPart);
-  c
-    caloriesPerWeek = 500 * exercises.size();
+  for (const auto& exercise : exercises) {
+    caloriesPerWeek += exercise.burnedCalories;
+  }
 }
