@@ -10,6 +10,6 @@ private:
 
 public:
 	DietPlan();
-	void generatePlan();
+	void generatePlan(std::vector<FoodList> &foodlist);
 	void printPlan() const;
 };

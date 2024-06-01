@@ -1,7 +1,7 @@
 #include"MealCommand.h"
 #include<iostream>
 #include<sstream>
-MealCommand::MealCommand(std::shared_ptr<DietPlan> dietPlan, FoodDatabase& db) : dietPlan(dietPlan), db(db) {}
+#include"FoodDatabase.h"
 
 void MealCommand::execute() {
 	std::vector<std::string> exclude;
@@ -15,8 +15,10 @@ void MealCommand::execute() {
 		exclude.push_back(item);
 	}
 
+	FoodDatabase db;
+	db.loadFoodList("foodlist.txt");
 	db.setExclusion(exclude);
-	dietPlan->generatePlan();
+	dietPlan->generatePlan(db);
 	dietPlan->printPlan();
 }
 
