@@ -8,9 +8,8 @@ class MealCommand : public Command
 {
 private:
 	std::shared_ptr<DietPlan> dietPlan;
-	FoodDatabase& db;
 public:
-	MealCommand(std::shared_ptr<DietPlan> dietPlan, FoodDatabase& db);
+	MealCommand();
 	void execute() override;
 
 };
