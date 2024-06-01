@@ -1,0 +1,15 @@
+Kiwi 54
+Tomato 35
+Yogurt 103
+Banana 93
+ChickenBreast 109
+Egg 75
+Tofu 79
+Cucumber 9
+SweetPumpkin 29
+Chestnut 162
+Beef 125
+Carrot 34
+SoyMilk 54
+Salmon 120
+Salad 200
