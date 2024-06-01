@@ -1,11 +1,10 @@
-//한끼 식사 관리, 주어진 음식 목록과 칼로리 제한 바탕으로 식사 생성
 #include<iostream>
 #include<random>
 #include"MealPlan.h"
 
 MealPlan::MealPlan(std::vector<FoodItem> mealItem) : mealItem(mealItem) {}
 
-std::vector<FoodItem> MealPlan::generateMeal(FoodDatabase& db , int maxCalories, std::vector<std::string>& exclusion)
+void MealPlan::generateMeal(FoodDatabase& db , int maxCalories, std::vector<std::string>& exclusion)
 	{
 		mealItem.clear();
 		int totalCalories = 0;
@@ -30,5 +29,12 @@ std::vector<FoodItem> MealPlan::generateMeal(FoodDatabase& db , int maxCalories,
 		{
 			std::cout << "Cannot create a meal. Include foods." << std::endl;
 		}
-		return mealItem;
 	}
+
+void MealPlan::displayMeal()
+{
+	for(auto& food: mealItem)
+	{
+		std::cout<<food.getName()<<" "<<std::endl;
+	}
+}

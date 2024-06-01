@@ -7,6 +7,6 @@ private:
 	std::vector<FoodItem> mealItem;
 public:
 	MealPlan(std::vector<FoodItem> mealItem);
-	std::vector<FoodItem> generateMeal(FoodDatabase& db, int maxCalories, std::vector<std::string>& exclusion);
-	
+	void generateMeal(FoodDatabase& db, int maxCalories, std::vector<std::string>& exclusion);
+	void displayMeal();
 };
