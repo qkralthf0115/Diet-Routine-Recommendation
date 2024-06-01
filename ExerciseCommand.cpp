@@ -1,7 +1,7 @@
 #include "ExerciseCommand.h"
 
 
-void ExerciseCommand::execute() override {
+void ExerciseCommand::execute() {
   std::string targetAreaStr;
   int exerciseDays;
 
