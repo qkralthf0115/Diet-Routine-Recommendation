@@ -8,7 +8,8 @@ class Menu
 private:
 	std::vector<Command*> commands;
 public:
-	void addCommand(Command* command);
-	void executeCommand(int index);
+	void addCommand(std::shared_ptr<Command> command);
+	void selectCommand(int index);
 	void displayCommand();
+	void setMenu();
 };
