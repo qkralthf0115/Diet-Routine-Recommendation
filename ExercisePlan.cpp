@@ -3,9 +3,9 @@
 void ExercisePlan::generateWeeklyPlan(const std::vector<WorkoutItem>& workoutList, int exerciseDays, int dailyCalories) {
   weeklyPlan.clear();
   for (int i = 0; i < exerciseDays; ++i) {
-    WorkoutPlan workoutPlan;
-    workoutPlan.generateDailyWorkout(workoutList, dailyCalories);
-    weeklyPlan.push_back(workoutPlan);
+    WorkoutPlan dailyWorkoutPlan;
+    dailyWorkoutPlan.generateDailyWorkout(workoutList, dailyCalories);
+    weeklyPlan.push_back(dailyWorkoutPlan);
   }
 }
 
