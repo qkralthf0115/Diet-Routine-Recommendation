@@ -4,8 +4,11 @@
 
 class ExerciseCommand {
 private:
-  std::shared_ptr<ExercisePlan> exercisePlan;
+  UserInfo& userInfo;
+  ExercisePlan* exercisePlan;
+  ExerciseData& db;
 public:
+  ExerciseCommand(UserInfo& ui, ExerciseDatae& database) : userInfo(ui), exercisePlan(nullptr), db(database) {}
   virtual void execute() = 0;
   void displayPlan();
 };
@@ -29,11 +32,11 @@ void ExerciseCommand::execute() {
 }
 
 void ExerciseCommand::displayPlan() {
-  std::cout << << std::endl << "추천 운동 루틴 (" << userInfo.workoutDaysPerWeek << "일):" << std::endl;
+  std::cout << std::endl << "추천 운동 루틴 (" << userInfo.workoutDaysPerWeek << "일):" << std::endl;
   for (int i = 0; i < userInfo.workoutDaysPerWeek; ++i) {
     std::cout << "Day " << i + 1 << ":" << std::endl;
     for (const auto& exercise : exercisePlan->exercises) {
-      std::cout << "- " << exercise.first << " (영상: " << exercise.second << ")" << std::endl;
+      std::cout << "- " << exercise.name << " (칼로리 소모량: " << exercise.burnedCalories << ")" << std::endl;
     }
   }
 }
