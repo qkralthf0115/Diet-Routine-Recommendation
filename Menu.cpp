@@ -15,7 +15,7 @@ void Menu::selectCommand(int index) {
 
 void Menu::displayMenu() {
 	for (int i = 0; i < this->commands.size(); i++) {
-		std::cout << i << ". " << this->commands[i]->getName() << std::endl;
+		std::cout << i + 1 << ". " << this->commands[i]->getName() << std::endl;
 	}
 }
 

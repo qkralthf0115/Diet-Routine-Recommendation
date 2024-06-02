@@ -1,14 +1,32 @@
 #include <iostream>
 #include "Menu.h"
+#include "Command.h"
+#include "ExerciseCommand.cpp"
+#include "MealCommand.cpp"
+#include "InputInfoCommand.cpp"
+#include "UserInfo.cpp"
+#include "FoodDatabase.cpp"
+#include "DietPlan.cpp"
+#include "WorkoutDatabase.cpp"
+#include "WorkoutItem.cpp"
+#include "BodyArea.h"
+#include "Menu.cpp"
+#include "FoodItem.cpp"
+#include "ExercisePlan.cpp"
+#include "MealPlan.cpp"
+#include "WorkoutPlan.cpp"
+
 
 int main() {
   Menu menu;
   menu.setMenu();
 
+  int temp;
   int choice;
   do {
     menu.displayMenu();
-    std::cin >> choice;
+    std::cin >> temp;
+    choice = temp - 1;
     menu.selectCommand(choice);
   } while (choice != 0);
   std::cout << "Exit the program." << std::endl;
