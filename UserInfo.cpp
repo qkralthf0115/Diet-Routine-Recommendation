@@ -46,6 +46,7 @@ double UserInfo::calculateFoodCalories()
     {
         foodcalories = 66.5 + (13.7 * weight) + (5 * height) - (6.8 * age);
     }
+    return foodcalories;
 
 }
 
