@@ -12,7 +12,6 @@ private:
     double wantedWeight;
     int week;
 public:
-    UserInfo(std::string name, int age, std::string gender, double weight, double height, double wantedWeight, int week);
     void inputInfo();
 
     std::string getName() const;
