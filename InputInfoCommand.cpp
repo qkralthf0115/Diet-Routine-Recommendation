@@ -1,6 +1,5 @@
 #include"InputInfoCommand.h"
 
-InputInfoCommand::execute()
-{
+void InputInfoCommand::execute() {
     userInfo->inputInfo();
 }

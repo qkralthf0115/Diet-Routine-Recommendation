@@ -2,8 +2,7 @@
 #include<iostream>
 #include<sstream>
 
-MealCommand::MealCommand()
-{
+MealCommand::MealCommand() {
 	userInfo = std::make_shared<UserInfo>();
 }
 
@@ -26,8 +25,4 @@ void MealCommand::execute() {
 	double maxCalories = userInfo->calculateFoodCalories() / 3;
 	dietPlan.generatePlan(db.getFoodList(), maxCalories);
 	dietPlan.printPlan();
-}
-
-std::string MealCommand::getName() const {
-	return name;
 }

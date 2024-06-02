@@ -1,6 +1,8 @@
 #include "ExerciseCommand.h"
 
-
+ExerciseCommand::ExerciseCommand() {
+  userInfo = std::make_shared<UserInfo>();
+}
 void ExerciseCommand::execute() {
   std::string targetAreaStr;
   int exerciseDays;
@@ -32,10 +34,7 @@ BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
   else throw std::invalid_argument("Unknown body area: " + areaStr);
 }
 
-int ExerciseCommand::calculateDailyCalories() {
-  return 500;
-}
-
-std::string ExerciseCommand::getName() const {
-  return name;
+double ExerciseCommand::calculateDailyCalories() {
+  double dailyCalories = userInfo->calculateExerciseCalories();
+  return dailyCalories;
 }
