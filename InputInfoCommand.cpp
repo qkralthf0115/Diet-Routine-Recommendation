@@ -1,5 +1,5 @@
 #include"InputInfoCommand.h"
 
-void InputInfoCommand::execute() override {
+void InputInfoCommand::execute() {
     userInfo->inputInfo();
 }

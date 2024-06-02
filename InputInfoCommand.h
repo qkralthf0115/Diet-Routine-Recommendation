@@ -7,6 +7,7 @@ class InputInfoCommand : public Command
 {
 private:
     std::shared_ptr<UserInfo> userInfo;
+    std::string name = "Input Information";
 public:
-    void execute() override;
+    void execute();
 };

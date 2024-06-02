@@ -13,6 +13,4 @@ private:
 public:
 	MealCommand();
 	void execute() override;
-	std::string getName() const;
-
 };

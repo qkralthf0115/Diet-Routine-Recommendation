@@ -7,13 +7,11 @@
 #include "BodyArea.h"
 
 class ExerciseCommand : public Command {
-public:
-  void execute() override;
-  std::string getName() const;
-
 private:
   BodyArea stringToBodyArea(const std::string& areaStr);
   int calculateDailyCalories();
   std::string name = "Exercise Recommendation";
 
+public:
+  void execute() override;
 };
