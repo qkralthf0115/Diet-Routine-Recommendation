@@ -2,18 +2,18 @@
 #include<random>
 #include"MealPlan.h"
 
-MealPlan::MealPlan(UserInfo& user) : maxCalories(user.calculateFoodCalories()/3) {}
+MealPlan::MealPlan() {}
 
-void MealPlan::generateMeal(FoodDatabase& db, UserInfo& user)
+void MealPlan::generateMeal(const std::vector<FoodItem>& foodList, double maxCalories)
 {
 	mealItem.clear();
-	int totalCalories = 0;
+	double totalCalories = 0;
 
 	std::random_device rd;
-	auto available = db.getFoodList();
+	auto available = foodList;
 	std::shuffle(available.begin(), available.end(), std::default_random_engine(rd()));
 
-	for (auto food : available)
+	for (const auto& food : available)
 	{
 		if (totalCalories + food.getCalories() <= maxCalories)
 		{
@@ -33,7 +33,7 @@ void MealPlan::generateMeal(FoodDatabase& db, UserInfo& user)
 
 void MealPlan::displayMeal() const
 {
-	for (auto& food : mealItem)
+	for (const auto& food : mealItem)
 	{
 		std::cout << food.getName() << " " << std::endl;
 	}

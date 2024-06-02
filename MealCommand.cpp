@@ -1,12 +1,16 @@
 #include"MealCommand.h"
 #include<iostream>
 #include<sstream>
-#include"FoodDatabase.h"
+
+MealCommand::MealCommand()
+{
+	userInfo = std::make_shared<UserInfo>();
+}
 
 void MealCommand::execute() {
 	std::vector<std::string> exclude;
 	std::string input;
-	std::cout << "Foods you do not want to eat (separate by spaces): ";
+	std::cout << "Foods you do not want to eat (separate by spaces, the first letter should be capitalized): ";
 	std::getline(std::cin, input);
 
 	std::stringstream ss(input);
@@ -18,8 +22,10 @@ void MealCommand::execute() {
 	FoodDatabase db;
 	db.loadFoodList("foodlist.txt");
 	db.setExclusion(exclude);
-	dietPlan->generatePlan(db);
-	dietPlan->printPlan();
+
+	double maxCalories = userInfo->calculateFoodCalories() / 3;
+	dietPlan.generatePlan(db.getFoodList(), maxCalories);
+	dietPlan.printPlan();
 }
 
 std::string MealCommand::getName() const {

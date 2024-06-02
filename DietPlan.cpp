@@ -3,14 +3,14 @@
 
 DietPlan::DietPlan() {}
 
-void DietPlan::generatePlan(std::vector<FoodList> &foodlist)
+void DietPlan::generatePlan(const std::vector<FoodItem>& foodList, double maxCalories)
 {
-
+	weeklyPlan.clear();
 	for (int i = 0; i < 21; ++i)
 	{
-		auto mealPlan = std::make_shared<MealPlan>();
-		mealPlan->generateMeal(foodlist);
-		weeklyPlan.push_back(mealPlan);
+		MealPlan oneMealPlan;
+		oneMealPlan.generateMeal(foodList, maxCalories);
+		weeklyPlan.push_back(oneMealPlan);
 	}
 
 }
@@ -21,12 +21,12 @@ void DietPlan::printPlan() const
 	{
 		std::cout << "Day " << j + 1 << std::endl;
 		std::cout << "Breakfast: ";
-		weeklyPlan[3 * j]->displayMeal();
+		weeklyPlan[3 * j].displayMeal();
 		std::cout << "Lunch: ";
-		weeklyPlan[3 * j + 1]->displayMeal();
+		weeklyPlan[3 * j + 1].displayMeal();
 		std::cout << "Dinner: ";
-		weeklyPlan[3 * j + 2]->displayMeal();
-		std::cout<<std::endl;
+		weeklyPlan[3 * j + 2].displayMeal();
+		std::cout << std::endl;
 
 	}
 

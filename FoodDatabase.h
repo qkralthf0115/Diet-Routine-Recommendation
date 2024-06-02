@@ -8,8 +8,8 @@ private:
 	std::vector<FoodItem> foodList;
 	std::vector<std::string> exclusion;
 public:
-	void loadFoodList(std::string fileName);
-	void setExclusion(std::vector<std::string>& exclude);
+	void loadFoodList(const std::string& fileName);
+	void setExclusion(const std::vector<std::string>& exclude);
 
-	std::vector<FoodItem> getFoodList();
+	std::vector<FoodItem> getFoodList() const;
 };
