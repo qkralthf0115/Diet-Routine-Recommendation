@@ -1,10 +1,6 @@
 #include<iostream>
 #include"UserInfo.h"
 
-UserInfo::UserInfo(std::string name, int age, std::string gender, double weight, double height, double wantedWeight, int week)
-    : name(name), age(age), gender(gender), weight(weight), height(height), wantedWeight(wantedWeight), week(week) {
-}
-
 void UserInfo::inputInfo() {
     std::cout << "Name: ";
     std::cin >> name;
