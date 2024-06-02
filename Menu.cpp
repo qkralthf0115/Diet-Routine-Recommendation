@@ -1,13 +1,12 @@
 #include "Menu.h"
 
-void Menu::addCommand(int index, Command* command) {
+void Menu::addCommand(Command* command) {
 	this->commands.push_back(command);
 }
 
 void Menu::selectCommand(int index) {
-	auto it commands.find(index);
-	if (it != commands.end()) {
-		it->second->execute();
+	if (index >= 0 && index < commands.size()) {
+		commands[index]->execute();
 	}
 	else {
 		std::cout << "Invalid command" << std::endl;

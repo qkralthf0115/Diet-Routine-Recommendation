@@ -11,7 +11,7 @@ class Menu
 private:
 	std::vector<Command*> commands;
 public:
-	void addCommand(int index, Command* command);
+	void addCommand(Command* command);
 	void selectCommand(int index);
 	void displayMenu();
 	void setMenu();
