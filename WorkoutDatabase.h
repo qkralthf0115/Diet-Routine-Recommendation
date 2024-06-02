@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "WorkoutItem.h"
+#include "BodyArea.h"
 
 class WorkoutDatabase {
 private:
