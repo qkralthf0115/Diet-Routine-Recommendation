@@ -12,5 +12,5 @@ private:
 	std::string name = "Meal Recommendation";
 public:
 	MealCommand();
-	void execute() override;
+	void execute();
 };
