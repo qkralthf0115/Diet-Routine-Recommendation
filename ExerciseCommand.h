@@ -15,5 +15,7 @@ private:
   std::string name = "Exercise Recommendation";
   std::shared_ptr<UserInfo> userInfo;
 public:
+  ExerciseCommand();
   void execute();
+  std::string getName() const;
 };

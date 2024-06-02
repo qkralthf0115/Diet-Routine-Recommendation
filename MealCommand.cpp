@@ -26,3 +26,7 @@ void MealCommand::execute() {
 	dietPlan.generatePlan(db.getFoodList(), maxCalories);
 	dietPlan.printPlan();
 }
+
+std::string MealCommand::getName() const {
+	return "Meal Recommendation";
+}

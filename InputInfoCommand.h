@@ -10,4 +10,5 @@ private:
     std::string name = "Input User Info";
 public:
     void execute();
+    std::string getName() const;
 };

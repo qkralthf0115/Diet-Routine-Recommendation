@@ -13,4 +13,5 @@ private:
 public:
 	MealCommand();
 	void execute();
+	std::string getName() const;
 };

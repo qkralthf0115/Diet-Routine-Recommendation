@@ -38,3 +38,7 @@ double ExerciseCommand::calculateDailyCalories() {
   double dailyCalories = userInfo->calculateExerciseCalories();
   return dailyCalories;
 }
+
+std::string ExerciseCommand::getName() const {
+  return "Exercise Recommendation";
+}
