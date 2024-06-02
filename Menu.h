@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <Memory>
+#include <memory>
 #include "Command.h"
 #include "ExerciseCommand.h"
 #include "MealCommand.h"
