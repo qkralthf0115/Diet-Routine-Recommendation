@@ -15,5 +15,5 @@ private:
   std::string name = "Exercise Recommendation";
   std::shared_ptr<UserInfo> userInfo;
 public:
-  void execute() override;
+  void execute();
 };
