@@ -11,7 +11,7 @@
 class ExerciseCommand : public Command {
 private:
   BodyArea stringToBodyArea(const std::string& areaStr);
-  int calculateDailyCalories();
+  double calculateDailyCalories();
   std::string name = "Exercise Recommendation";
   std::shared_ptr<UserInfo> userInfo;
 public:
