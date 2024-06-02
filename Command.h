@@ -5,5 +5,5 @@ protected:
 	std::string name;
 public:
 	virtual void execute() = 0;
-	std::string getName();
+	virtual std::string getName() const = 0;
 };
