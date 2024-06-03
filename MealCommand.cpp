@@ -11,7 +11,7 @@ void MealCommand::execute() {
 	std::string input;
 
 	std::cout << "Foods you do not want to eat (separate by spaces, the first letter should be capitalized): "<<std::endl;
-	cin.ignore();
+	std::cin.ignore();
 	std::getline(std::cin, input);
 
 	std::stringstream ss(input);
