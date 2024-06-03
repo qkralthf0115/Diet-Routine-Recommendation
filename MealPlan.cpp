@@ -35,7 +35,6 @@ void MealPlan::displayMeal() const
 {
 	for (const auto& food : mealItem)
 	{
-		std::cout << food.getName() << " " << std::endl;
+		std::cout << food.getName() << " ";
 	}
-	std::cout << std::endl;
 }

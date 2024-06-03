@@ -22,8 +22,10 @@ void DietPlan::printPlan() const
 		std::cout << "Day " << j + 1 << std::endl;
 		std::cout << "Breakfast: ";
 		weeklyPlan[3 * j].displayMeal();
+		std::cout<<std::endl;
 		std::cout << "Lunch: ";
 		weeklyPlan[3 * j + 1].displayMeal();
+		std::cout<<std::endl;
 		std::cout << "Dinner: ";
 		weeklyPlan[3 * j + 2].displayMeal();
 		std::cout << std::endl;
