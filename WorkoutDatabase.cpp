@@ -22,3 +22,12 @@ std::vector<WorkoutItem> WorkoutDatabase::filterByArea(BodyArea targetArea) {
   }
   return filteredList;
 }
+std::vector<WorkoutItem> WorkoutDatabase::getWorkoutListByArea(BodyArea targetArea) {
+  std::vector<WorkoutItem> filteredList;
+  for (const auto& workout : workoutList) {
+    if (workout.getFocusArea() == targetArea) {
+      filteredList.push_back(workout);
+    }
+  }
+  return filteredList;
+}

@@ -22,4 +22,5 @@ private:
 public:
   void loadWorkoutList(const std::string& filename);
   std::vector<WorkoutItem> filterByArea(BodyArea targetArea);
+  std::vector<WorkoutItem> getWorkoutListByArea(BodyArea targetArea);
 };
