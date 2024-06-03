@@ -25,7 +25,7 @@ void ExerciseCommand::execute() {
   std::cout << "Enter number of exercise days per week: ";
   std::cin >> exerciseDays;
 
-  int dailyCalories = calculateDailyCalories(); // You need to implement this method
+  int dailyCalories = calculateDailyCalories();
 
   WorkoutDatabase workoutDb;
   workoutDb.loadWorkoutList("Exercise_Data.txt");
