@@ -6,20 +6,22 @@ ExerciseCommand::ExerciseCommand() {
 void ExerciseCommand::execute() {
   std::vector<BodyArea> targetAreas;
   std::string targetAreaStr;
-  int exerciseDays;
 
   std::cout << "Enter target body area (UpperBody, LowerBody, Core, Back, FullBody): ";
-  while (true) {
-    std::getline(std::cin, targetAreaStr);
-    if (targetAreaStr.empty()) break;
+  std::cin.ignore();
+  std::getline(std::cin, targetAreaStr);
+  std::istringstream iss(targetAreaStr);
+  std::string area;
+  while (iss >> area) {
     try {
-      targetAreas.push_back(stringToBodyArea(targetAreaStr));
+      targetAreas.push_back(stringToBodyArea(area));
     }
     catch (const std::invalid_argument& e) {
-      std::cout << "Invalid input. Please enter a valid body area." << std::endl;
+      std::cout << "Invalid input: " << area << ". Please enter a valid body area." << std::endl;
     }
   }
 
+  int exerciseDays;
   std::cout << "Enter number of exercise days per week: ";
   std::cin >> exerciseDays;
 
@@ -27,6 +29,7 @@ void ExerciseCommand::execute() {
 
   WorkoutDatabase workoutDb;
   workoutDb.loadWorkoutList("Exercise_Data.txt");
+
   std::vector<WorkoutItem> filteredWorkouts;
   for (const auto& area : targetAreas) {
     auto areaWorkouts = workoutDb.getWorkoutListByArea(area);
