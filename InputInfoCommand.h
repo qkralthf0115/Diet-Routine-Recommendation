@@ -9,6 +9,7 @@ private:
     std::shared_ptr<UserInfo> userInfo;
     std::string name = "Input User Info";
 public:
+    InputInfoCommand();
     void execute();
     std::string getName() const;
 };
