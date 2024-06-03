@@ -1,5 +1,14 @@
 #include "WorkoutDatabase.h"
 
+BodyArea WorkoutDatabase::stringToBodyArea(const std::string& areaStr) {
+  if (areaStr == "UpperBody") return BodyArea::UpperBody;
+  else if (areaStr == "LowerBody") return BodyArea::LowerBody;
+  else if (areaStr == "Core") return BodyArea::Core;
+  else if (areaStr == "Back") return BodyArea::Back;
+  else if (areaStr == "FullBody") return BodyArea::FullBody;
+  else throw std::invalid_argument("Unknown body area: " + areaStr);
+}
+
 void WorkoutDatabase::loadWorkoutList(const std::string& filename) {
   std::ifstream file(filename);
   std::string line;
@@ -13,15 +22,6 @@ void WorkoutDatabase::loadWorkoutList(const std::string& filename) {
   }
 }
 
-std::vector<WorkoutItem> WorkoutDatabase::filterByArea(BodyArea targetArea) {
-  std::vector<WorkoutItem> filteredList;
-  for (const auto& workout : workoutList) {
-    if (workout.getFocusArea() == targetArea) {
-      filteredList.push_back(workout);
-    }
-  }
-  return filteredList;
-}
 std::vector<WorkoutItem> WorkoutDatabase::getWorkoutListByArea(BodyArea targetArea) {
   std::vector<WorkoutItem> filteredList;
   for (const auto& workout : workoutList) {
