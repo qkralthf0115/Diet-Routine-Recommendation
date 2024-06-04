@@ -1,48 +1,39 @@
 #include "WorkoutPlan.h"
+#include <iostream>
+#include <algorithm>
+#include <random>
 
 WorkoutPlan::WorkoutPlan() {
   srand(static_cast<unsigned int>(time(0))); // Seed random number generator
 }
 
-void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, double dailyCalories, std::vector<bool>& usedWorkouts) {
+void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, double dailyCalories) {
   dailyWorkouts.clear();
   int totalCalories = 0;
+
   if (workoutList.empty()) {
     std::cout << "No workouts available to generate daily workout." << std::endl;
     return;
   }
-  std::vector<int> availableIndices;
-  for (size_t i = 0; i < workoutList.size(); ++i) {
-    if (!usedWorkouts[i]) {
-      availableIndices.push_back(i);
-    }
-  }
-  if (availableIndices.empty()) {
-    std::cout << "No more workouts available to generate daily workout." << std::endl;
-    return;
-  }
-  while (totalCalories < dailyCalories) {
-    if (availableIndices.empty()) {
-      std::cout << "Ran out of available workouts to reach the calorie target." << std::endl;
-      break;
-    }
 
-    int randomIndex = rand() % workoutList.size();
-    int workoutIndex = availableIndices[randomIndex];
-    if (workoutIndex >= workoutList.size() || workoutIndex < 0) {
-      std::cerr << "Invalid workout index: " << workoutIndex << std::endl;
-      continue;
-    }
-    const WorkoutItem& workout = workoutList[workoutIndex];
+  std::vector<WorkoutItem> availableWorkouts = workoutList;
+  std::random_device rd;
+  std::default_random_engine rng(rd());
+  std::shuffle(availableWorkouts.begin(), availableWorkouts.end(), rng);
 
-    if (totalCalories + workout.getCaloriesBurned() <= dailyCalories + 500) {
+  for (const auto& workout : availableWorkouts) {
+    if (totalCalories + workout.getCaloriesBurned() <= dailyCalories) {
       dailyWorkouts.push_back(workout);
       totalCalories += workout.getCaloriesBurned();
-      usedWorkouts[workoutIndex] = true;
     }
-    availableIndices.erase(availableIndices.begin() + randomIndex);
+    if (totalCalories >= dailyCalories) {
+      break;
+    }
   }
-  std::cout << "Generated daily workout with " << dailyWorkouts.size() << " exercises." << std::endl;
+  std::cout << "Generated daily workout with " << dailyWorkouts.size() << " exercises, total calories: " << totalCalories << std::endl;
+  if (dailyWorkouts.empty()) {
+    std::cout << "Cannot create a daily workout. Include more workouts." << std::endl;
+  }
 }
 
 const std::vector<WorkoutItem>& WorkoutPlan::getDailyWorkouts() const {
