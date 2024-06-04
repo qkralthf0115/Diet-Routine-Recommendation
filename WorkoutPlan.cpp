@@ -30,7 +30,6 @@ void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutLi
       break;
     }
   }
-  std::cout << "Generated daily workout with " << dailyWorkouts.size() << " exercises, total calories: " << totalCalories << std::endl;
   if (dailyWorkouts.empty()) {
     std::cout << "Cannot create a daily workout. Include more workouts." << std::endl;
   }
