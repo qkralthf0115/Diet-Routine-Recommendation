@@ -35,7 +35,6 @@ void ExerciseCommand::execute() {
       auto areaWorkouts = workoutDb.getWorkoutListByArea(area);
       filteredWorkouts.insert(filteredWorkouts.end(), areaWorkouts.begin(), areaWorkouts.end());
     }
-    std::cout << "Total filtered workouts: " << filteredWorkouts.size() << std::endl;
 
     ExercisePlan exercisePlan;
     exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
@@ -62,7 +61,7 @@ double ExerciseCommand::calculateDailyCalories() {
     return 0;
   }
   double dailyCalories = weeklyExerciseCalories / exerciseDays;
-  std::cout << "Daily exercise calories:" << dailyCalories << std::endl;
+  std::cout << "Daily exercise calories: " << dailyCalories << std::endl;
   return dailyCalories;
 }
 

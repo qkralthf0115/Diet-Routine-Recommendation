@@ -10,6 +10,6 @@ private:
 
 public:
   WorkoutPlan();
-  void generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, double dailyCalories, std::vector<bool>& usedWorkouts);
+  void generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, double dailyCalories);
   const std::vector<WorkoutItem>& getDailyWorkouts() const;
 };

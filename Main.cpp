@@ -16,7 +16,6 @@
 #include "MealPlan.cpp"
 #include "WorkoutPlan.cpp"
 
-
 int main() {
   Menu menu;
   int choice;

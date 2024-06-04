@@ -34,7 +34,6 @@ void WorkoutDatabase::loadWorkoutList(const std::string& filename) {
       continue;
     }
   }
-  std::cout << "Loaded " << workoutList.size() << " workouts." << std::endl; // Debug statement
 }
 
 std::vector<WorkoutItem> WorkoutDatabase::getWorkoutListByArea(BodyArea targetArea) {
@@ -44,6 +43,5 @@ std::vector<WorkoutItem> WorkoutDatabase::getWorkoutListByArea(BodyArea targetAr
       filteredList.push_back(workout);
     }
   }
-  std::cout << "Filtered " << filteredList.size() << " workouts for area." << std::endl;
   return filteredList;
 }
