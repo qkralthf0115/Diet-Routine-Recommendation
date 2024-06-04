@@ -44,8 +44,14 @@ double UserInfo::calculateFoodCalories() {
 }
 
 double UserInfo::calculateExerciseCalories() {
-    double wantedw = getWantedWeight();
-    double currentw = getWeight();
-    double exerciseCalories = (currentw - wantedw) * 7700 / week;
+    if (week <= 0) {
+        std::cerr << "Invalid number of weeks. Please enter a positive number." << std::endl;
+        return 0;
+    }
+    double exerciseCalories = ((weight - wantedWeight) * 7700) / week;
+    if (exerciseCalories < 0) {
+        std::cerr << "Wanted weight should be less than current weight." << std::endl;
+        return 0;
+    }
     return exerciseCalories;
 }
