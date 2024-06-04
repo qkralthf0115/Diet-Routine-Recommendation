@@ -15,21 +15,25 @@ void DietPlan::generatePlan(const std::vector<FoodItem>& foodList, double maxCal
 
 }
 
+//Need to add colors
 void DietPlan::printPlan() const
 {
+	std::cout<<"============================================================================================="<<std::endl;
 	for (int j = 0; j < 7; ++j)
 	{
-		std::cout << "Day " << j + 1 << std::endl;
-		std::cout << "Breakfast: ";
+		std::cout <<"\033[0;35m"<< "Day " << j + 1 << std::endl;
+		std::cout<<"\033[0;33m" << "Breakfast: "<<"\033[0;37m";
 		weeklyPlan[3 * j].displayMeal();
-		std::cout<<std::endl;
-		std::cout << "Lunch: ";
+		
+		std::cout <<"\033[0;33m"<<"Lunch: "<<"\033[0;37m";
 		weeklyPlan[3 * j + 1].displayMeal();
-		std::cout<<std::endl;
-		std::cout << "Dinner: ";
+		
+		std::cout <<"\033[0;33m"<<"Dinner: "<<"\033[0;37m";
 		weeklyPlan[3 * j + 2].displayMeal();
-		std::cout << std::endl;
+		
+		std::cout<<std::endl;
 
 	}
+	std::cout<<"============================================================================================="<<std::endl;
 
 }
