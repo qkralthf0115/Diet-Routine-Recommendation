@@ -19,16 +19,12 @@
 
 int main() {
   Menu menu;
-  menu.setMenu();
-
-  int temp;
   int choice;
   do {
-    std::cout << "\033[1;32m" << "Choose a command (1-3) or -1 to exit:" << "\033[1;37m" << std::endl;
     menu.displayMenu();
-    std::cin >> temp;
-    menu.selectCommand(temp - 1);
-  } while (temp != -1);
+    std::cin >> choice;
+    menu.executeCommand(choice);
+  } while (choice != -1);
   std::cout << "Exit the program." << std::endl;
   return 0;
 }
