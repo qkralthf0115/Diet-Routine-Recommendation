@@ -20,21 +20,28 @@ void MealPlan::generateMeal(const std::vector<FoodItem>& foodList, double maxCal
 			mealItem.push_back(food);
 			totalCalories += food.getCalories();
 		}
-		if (totalCalories >= maxCalories)
+		if (totalCalories 
+		>= maxCalories)
 		{
 			break;
 		}
 	}
+	//This should be printed only once
 	if (mealItem.empty())
 	{
 		std::cout << "Cannot create a meal. Include more foods." << std::endl;
 	}
 }
 
+
 void MealPlan::displayMeal() const
 {
+	double totC=0.0;
 	for (const auto& food : mealItem)
 	{
 		std::cout << food.getName() << " ";
+		totC+=food.getCalories();
 	}
+	std::cout<<"("<<totC<<"kcal)"<<std::endl;
+
 }
