@@ -11,26 +11,36 @@ void WorkoutPlan::generateDailyWorkout(const std::vector<WorkoutItem>& workoutLi
     std::cout << "No workouts available to generate daily workout." << std::endl;
     return;
   }
-  std::vector<bool> dailyUsedWorkouts(workoutList.size(), false);
-
-  while (totalCalories < dailyCalories + 500) {
-    if (std::all_of(dailyUsedWorkouts.begin(), dailyUsedWorkouts.end(), [](bool b) { return b; })) {
-      std::cout << "No more workouts available to generate daily workout." << std::endl;
-      break;
-    }
-    int randomIndex = rand() % workoutList.size();
-    if (!usedWorkouts[randomIndex] && !dailyUsedWorkouts[randomIndex]) {
-      const WorkoutItem& workout = workoutList[randomIndex];
-      dailyWorkouts.push_back(workout);
-      totalCalories += workout.getCaloriesBurned();
-      dailyUsedWorkouts[randomIndex] = true;
+  std::vector<int> availableIndices;
+  for (size_t i = 0; i < workoutList.size(); ++i) {
+    if (!usedWorkouts[i]) {
+      availableIndices.push_back(i);
     }
   }
-
-  for (size_t i = 0; i < workoutList.size(); ++i) {
-    if (dailyUsedWorkouts[i]) {
-      usedWorkouts[i] = true;
+  if (availableIndices.empty()) {
+    std::cout << "No more workouts available to generate daily workout." << std::endl;
+    return;
+  }
+  while (totalCalories < dailyCalories) {
+    if (availableIndices.empty()) {
+      std::cout << "Ran out of available workouts to reach the calorie target." << std::endl;
+      break;
     }
+
+    int randomIndex = rand() % workoutList.size();
+    int workoutIndex = availableIndices[randomIndex];
+    if (workoutIndex >= workoutList.size() || workoutIndex < 0) {
+      std::cerr << "Invalid workout index: " << workoutIndex << std::endl;
+      continue;
+    }
+    const WorkoutItem& workout = workoutList[workoutIndex];
+
+    if (totalCalories + workout.getCaloriesBurned() <= dailyCalories + 500) {
+      dailyWorkouts.push_back(workout);
+      totalCalories += workout.getCaloriesBurned();
+      usedWorkouts[workoutIndex] = true;
+    }
+    availableIndices.erase(availableIndices.begin() + randomIndex);
   }
   std::cout << "Generated daily workout with " << dailyWorkouts.size() << " exercises." << std::endl;
 }
