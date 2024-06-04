@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include <string>
 #include <memory>
 #include "Command.h"
@@ -12,10 +13,10 @@ class ExerciseCommand : public Command {
 private:
   BodyArea stringToBodyArea(const std::string& areaStr);
   double calculateDailyCalories();
-  std::string name = "Exercise Recommendation";
   std::shared_ptr<UserInfo> userInfo;
+  int exerciseDays;
 public:
-  ExerciseCommand();
+  ExerciseCommand(std::shared_ptr<UserInfo> userInfo);
   void execute();
   std::string getName() const;
 };

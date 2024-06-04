@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <cstdlib> // rand()
+#include <cstdlib> // rand()
 #include <ctime> // time()
 #include "WorkoutItem.h"
 
@@ -10,6 +10,6 @@ private:
 
 public:
   WorkoutPlan();
-  void generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, int dailyCalories);
+  void generateDailyWorkout(const std::vector<WorkoutItem>& workoutList, double dailyCalories, std::vector<bool>& usedWorkouts);
   const std::vector<WorkoutItem>& getDailyWorkouts() const;
 };

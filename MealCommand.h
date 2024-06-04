@@ -11,7 +11,7 @@ private:
 	DietPlan dietPlan;
 	std::string name = "Meal Recommendation";
 public:
-	MealCommand();
+	MealCommand(std::shared_ptr<UserInfo> userInfo);
 	void execute();
 	std::string getName() const;
 };

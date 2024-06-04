@@ -1,30 +1,29 @@
 #include "Menu.h"
 
-void Menu::addCommand(Command* command) {
-	this->commands.push_back(command);
+Menu::Menu() {
+	userInfo = std::make_shared<UserInfo>();
+
+	addCommand(std::unique_ptr<Command>(new InputInfoCommand(userInfo)));
+	addCommand(std::unique_ptr<Command>(new ExerciseCommand(userInfo)));
+	addCommand(std::unique_ptr<Command>(new MealCommand(userInfo)));
 }
 
-void Menu::selectCommand(int index) {
-	if (index >= 0 && index < commands.size()) {
-		commands[index]->execute();
+void Menu::addCommand(std::unique_ptr<Command> command) {
+	this->commands.push_back(std::move(command));
+}
+
+void Menu::executeCommand(int choice) {
+	if (choice - 1 >= 0 && choice - 1 < commands.size()) {
+		commands[choice - 1]->execute();
 	}
 	else {
 		std::cout << "Invalid command" << std::endl;
 	}
 }
 
-void Menu::displayMenu() {
+void Menu::displayMenu() const {
+	std::cout << "\033[1;32m" << "Choose a command (1-3) or -1 to exit:" << "\033[1;37m" << std::endl;
 	for (int i = 0; i < this->commands.size(); i++) {
 		std::cout << i + 1 << ". " << this->commands[i]->getName() << std::endl;
 	}
-}
-
-void Menu::setMenu() {
-	Command* addInfoCommand = new InputInfoCommand();
-	Command* exerciseCommand = new ExerciseCommand();
-	Command* mealCommand = new MealCommand();
-
-	addCommand(addInfoCommand);
-	addCommand(exerciseCommand);
-	addCommand(mealCommand);
 }

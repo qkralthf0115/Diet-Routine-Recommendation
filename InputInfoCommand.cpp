@@ -1,6 +1,6 @@
 #include"InputInfoCommand.h"
 
-InputInfoCommand::InputInfoCommand() : userInfo(std::make_shared<UserInfo>()) {}
+InputInfoCommand::InputInfoCommand(std::shared_ptr<UserInfo> userInfo) : userInfo(userInfo) {}
 
 void InputInfoCommand::execute() {
     userInfo->inputInfo();

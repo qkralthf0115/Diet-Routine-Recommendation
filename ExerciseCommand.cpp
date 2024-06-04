@@ -1,28 +1,49 @@
 #include "ExerciseCommand.h"
 
-ExerciseCommand::ExerciseCommand() {
-  userInfo = std::make_shared<UserInfo>();
-}
+ExerciseCommand::ExerciseCommand(std::shared_ptr<UserInfo> userInfo) : userInfo(userInfo) {}
+
 void ExerciseCommand::execute() {
-  std::string targetAreaStr;
-  int exerciseDays;
+  if (!userInfo->getName().empty()) {
+    std::vector<BodyArea> targetAreas;
+    std::string targetAreaStr;
 
-  std::cout << "Enter target body area (UpperBody, LowerBody, Core, Back, FullBody): ";
-  std::cin >> targetAreaStr;
-  BodyArea targetArea = stringToBodyArea(targetAreaStr);
+    std::cout << "Enter target body areas (UpperBody, LowerBody, Core, Back, FullBody) separated by spaces. Press Enter when finished:" << std::endl;
+    std::cin.ignore();
+    std::getline(std::cin, targetAreaStr);
 
-  std::cout << "Enter number of exercise days per week: ";
-  std::cin >> exerciseDays;
+    std::istringstream iss(targetAreaStr);
+    std::string area;
+    while (iss >> area) {
+      try {
+        targetAreas.push_back(stringToBodyArea(area));
+      }
+      catch (const std::invalid_argument& e) {
+        std::cout << "Invalid input: " << area << ". Please enter a valid body area." << std::endl;
+      }
+    }
 
-  int dailyCalories = calculateDailyCalories(); // You need to implement this method
+    std::cout << "Enter number of exercise days per week: ";
+    std::cin >> exerciseDays;
 
-  WorkoutDatabase workoutDb;
-  workoutDb.loadWorkoutList("Exercise_Data.txt");
-  auto filteredWorkouts = workoutDb.filterByArea(targetArea);
+    double dailyCalories = calculateDailyCalories();
 
-  ExercisePlan exercisePlan;
-  exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
-  exercisePlan.printWeeklyPlan();
+    WorkoutDatabase workoutDb;
+    workoutDb.loadWorkoutList("ExerciseData.txt");
+
+    std::vector<WorkoutItem> filteredWorkouts;
+    for (const auto& area : targetAreas) {
+      auto areaWorkouts = workoutDb.getWorkoutListByArea(area);
+      filteredWorkouts.insert(filteredWorkouts.end(), areaWorkouts.begin(), areaWorkouts.end());
+    }
+    std::cout << "Total filtered workouts: " << filteredWorkouts.size() << std::endl;
+
+    ExercisePlan exercisePlan;
+    exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
+    exercisePlan.printWeeklyPlan();
+  }
+  else {
+    std::cout << "Please input user information first." << std::endl;
+  }
 }
 
 BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
@@ -35,7 +56,13 @@ BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
 }
 
 double ExerciseCommand::calculateDailyCalories() {
-  double dailyCalories = userInfo->calculateExerciseCalories();
+  double weeklyExerciseCalories = userInfo->calculateExerciseCalories();
+  if (exerciseDays <= 0) {
+    std::cerr << "Invalid number of exercise days. Must be greater than zero." << std::endl;
+    return 0;
+  }
+  double dailyCalories = weeklyExerciseCalories / exerciseDays;
+  std::cout << "Daily exercise calories:" << dailyCalories << std::endl;
   return dailyCalories;
 }
 
