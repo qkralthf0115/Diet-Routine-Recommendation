@@ -14,8 +14,9 @@ private:
   BodyArea stringToBodyArea(const std::string& areaStr);
   double calculateDailyCalories();
   std::shared_ptr<UserInfo> userInfo;
+  int exerciseDays;
 public:
-  ExerciseCommand();
+  ExerciseCommand(std::shared_ptr<UserInfo> userInfo);
   void execute();
   std::string getName() const;
 };

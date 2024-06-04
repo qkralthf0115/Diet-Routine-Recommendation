@@ -7,9 +7,8 @@ class InputInfoCommand : public Command
 {
 private:
     std::shared_ptr<UserInfo> userInfo;
-    std::string name = "Input User Info";
 public:
-    InputInfoCommand();
+    InputInfoCommand(std::shared_ptr<UserInfo> userInfo);
     void execute();
     std::string getName() const;
 };

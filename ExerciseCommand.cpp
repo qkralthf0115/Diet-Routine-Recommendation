@@ -1,43 +1,49 @@
 #include "ExerciseCommand.h"
 
-ExerciseCommand::ExerciseCommand() {
-  userInfo = std::make_shared<UserInfo>();
-}
+ExerciseCommand::ExerciseCommand(std::shared_ptr<UserInfo> userInfo) : userInfo(userInfo) {}
+
 void ExerciseCommand::execute() {
-  std::vector<BodyArea> targetAreas;
-  std::string targetAreaStr;
+  if (!userInfo->getName().empty()) {
+    std::vector<BodyArea> targetAreas;
+    std::string targetAreaStr;
 
-  std::cout << "Enter target body area (UpperBody, LowerBody, Core, Back, FullBody): ";
-  std::cin.ignore();
-  std::getline(std::cin, targetAreaStr);
-  std::istringstream iss(targetAreaStr);
-  std::string area;
-  while (iss >> area) {
-    try {
-      targetAreas.push_back(stringToBodyArea(area));
+    std::cout << "Enter target body areas (UpperBody, LowerBody, Core, Back, FullBody) separated by spaces. Press Enter when finished:" << std::endl;
+    std::cin.ignore();
+    std::getline(std::cin, targetAreaStr);
+
+    std::istringstream iss(targetAreaStr);
+    std::string area;
+    while (iss >> area) {
+      try {
+        targetAreas.push_back(stringToBodyArea(area));
+      }
+      catch (const std::invalid_argument& e) {
+        std::cout << "Invalid input: " << area << ". Please enter a valid body area." << std::endl;
+      }
     }
-    catch (const std::invalid_argument& e) {
-      std::cout << "Invalid input: " << area << ". Please enter a valid body area." << std::endl;
+
+    std::cout << "Enter number of exercise days per week: ";
+    std::cin >> exerciseDays;
+
+    double dailyCalories = calculateDailyCalories();
+
+    WorkoutDatabase workoutDb;
+    workoutDb.loadWorkoutList("ExerciseData.txt");
+
+    std::vector<WorkoutItem> filteredWorkouts;
+    for (const auto& area : targetAreas) {
+      auto areaWorkouts = workoutDb.getWorkoutListByArea(area);
+      filteredWorkouts.insert(filteredWorkouts.end(), areaWorkouts.begin(), areaWorkouts.end());
     }
+    std::cout << "Total filtered workouts: " << filteredWorkouts.size() << std::endl;
+
+    ExercisePlan exercisePlan;
+    exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
+    exercisePlan.printWeeklyPlan();
   }
-
-  int exerciseDays;
-  std::cout << "Enter number of exercise days per week: ";
-  std::cin >> exerciseDays;
-
-  int dailyCalories = calculateDailyCalories();
-
-  WorkoutDatabase workoutDb;
-  workoutDb.loadWorkoutList("Exercise_Data.txt");
-
-  std::vector<WorkoutItem> filteredWorkouts;
-  for (const auto& area : targetAreas) {
-    auto areaWorkouts = workoutDb.getWorkoutListByArea(area);
-    filteredWorkouts.insert(filteredWorkouts.end(), areaWorkouts.begin(), areaWorkouts.end());
+  else {
+    std::cout << "Please input user information first." << std::endl;
   }
-  ExercisePlan exercisePlan;
-  exercisePlan.generateWeeklyPlan(filteredWorkouts, exerciseDays, dailyCalories);
-  exercisePlan.printWeeklyPlan();
 }
 
 BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
@@ -50,7 +56,13 @@ BodyArea ExerciseCommand::stringToBodyArea(const std::string& areaStr) {
 }
 
 double ExerciseCommand::calculateDailyCalories() {
-  double dailyCalories = userInfo->calculateExerciseCalories();
+  double weeklyExerciseCalories = userInfo->calculateExerciseCalories();
+  if (exerciseDays <= 0) {
+    std::cerr << "Invalid number of exercise days. Must be greater than zero." << std::endl;
+    return 0;
+  }
+  double dailyCalories = weeklyExerciseCalories / exerciseDays;
+  std::cout << "Daily exercise calories:" << dailyCalories << std::endl;
   return dailyCalories;
 }
 
