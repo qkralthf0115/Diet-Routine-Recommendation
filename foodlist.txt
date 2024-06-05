@@ -36,7 +36,6 @@ PastaPrimavera 250
 SpinachFetaOmelet 280
 ChickenQuinoaBowl 320
 SalmonNicoiseSalad 400
-BBQChickenPizza 300
 VeggieBurrito 310
 LentilSoup 180
 AvocadoToast 250
@@ -65,6 +64,5 @@ BeetSalad 150
 EggSaladSandwich 250
 RoastVegetableWrap 250
 TeriyakiChicken 320
-PastaCarbonara 400
 GrilledLambChops 340
 VegetablePadThai 300
