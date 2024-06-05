@@ -9,7 +9,10 @@ void MealCommand::execute() {
 		std::vector<std::string> exclude;
 		std::string input;
 
-		std::cout << "Foods you do not want to eat (separate by spaces, the first letter should be capitalized): " << std::endl;
+		std::cout<<"========================================================================================================="<<std::endl;
+		std::cout <<"Foods you do not want to eat" <<std::endl;
+		std::cout<<"(Separate by spaces, the first letter should be"<<"\033[0;35m"<<" capitalized"<<"\033[0;37m"<<")" << std::endl;
+		std::cout<<"(If none write down None): "<<std::endl;
 		std::cin.ignore();
 		std::getline(std::cin, input);
 
