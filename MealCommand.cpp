@@ -11,8 +11,8 @@ void MealCommand::execute() {
 
 		std::cout<<"========================================================================================================="<<std::endl;
 		std::cout <<"Foods you do not want to eat" <<std::endl;
-		std::cout<<"(Separate by spaces, the first letter should be"<<"\033[0;35m"<<" capitalized"<<"\033[0;37m"<<")" << std::endl;
-		std::cout<<"(If none write down None): "<<std::endl;
+		std::cout<<"(Separate by "<<"\033[0;35m"<<"spaces"<<"\033[0;37m"<<", the first letter should be"<<"\033[0;35m"<<" capitalized"<<"\033[0;37m"<<", If none write down "<<"\033[0;35m"<<"None"<<"\033[0;35m"<<std::endl;
+		std::cout<<": ";
 		std::cin.ignore();
 		std::getline(std::cin, input);
 
