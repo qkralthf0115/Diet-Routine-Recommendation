@@ -31,7 +31,9 @@ void MealCommand::execute() {
 		dietPlan.printPlan();
 	}
 	else {
-		std::cout << "Please input user information first." << std::endl;
+		std::cout<<"========================================================================================================="<<std::endl;
+		std::cout<<"\033[0;35m"<<"Please input user information first."<<"\033[0;37m" << std::endl;
+		std::cout<<"========================================================================================================="<<std::endl;
 
 	}
 }
