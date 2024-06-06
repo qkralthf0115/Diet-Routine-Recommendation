@@ -15,15 +15,47 @@
 #include "ExercisePlan.cpp"
 #include "MealPlan.cpp"
 #include "WorkoutPlan.cpp"
+#include "User.cpp"
+#include "UserManager.cpp"
 
 int main() {
-  Menu menu;
+  UserManager userManager;
+  std::shared_ptr<User> loggedInUser = nullptr;
   int choice;
-  do {
-    menu.displayMenu();
+
+  while (true) {
+    userManager.displayMenu();
     std::cin >> choice;
-    menu.executeCommand(choice);
-  } while (choice != -1);
-  std::cout << "Exit the program." << std::endl;
-  return 0;
+
+    if (choice == -1) {
+      std::cout << "Exiting program. See you next time!" << std::endl;
+      return 0;
+    }
+
+    switch (choice) {
+    case 1:
+      userManager.signup();
+      break;
+    case 2:
+      loggedInUser = userManager.login();
+      if (loggedInUser) {
+        Menu menu;
+        int menuChoice;
+        while (true) {
+          menu.displayMenu();
+          std::cin >> menuChoice;
+          if (menuChoice == -1) {
+            std::cout << "Logging out..." << std::endl;
+            loggedInUser = nullptr;
+            break;
+          }
+          menu.executeCommand(menuChoice);
+        }
+      }
+      break;
+    default:
+      std::cout << "Invalid choice. Please try again." << std::endl;
+      break;
+    }
+  }
 }
