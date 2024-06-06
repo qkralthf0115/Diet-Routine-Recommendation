@@ -28,7 +28,7 @@ int main() {
     std::cin >> choice;
 
     if (choice == -1) {
-      std::cout << "Exiting program. Goodbye!\n";
+      std::cout << "Exiting program. See you next time!" << std::endl;
       return 0;
     }
 
@@ -45,7 +45,7 @@ int main() {
           menu.displayMenu();
           std::cin >> menuChoice;
           if (menuChoice == -1) {
-            std::cout << "Logging out...\n";
+            std::cout << "Logging out..." << std::endl;
             loggedInUser = nullptr;
             break;
           }
@@ -54,7 +54,7 @@ int main() {
       }
       break;
     default:
-      std::cout << "Invalid choice. Please try again.\n";
+      std::cout << "Invalid choice. Please try again." << std::endl;
       break;
     }
   }
