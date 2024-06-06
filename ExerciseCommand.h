@@ -19,4 +19,5 @@ public:
   ExerciseCommand(std::shared_ptr<UserInfo> userInfo);
   void execute();
   std::string getName() const;
+  int getDays() const;
 };
