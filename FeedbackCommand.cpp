@@ -10,9 +10,11 @@ void FeedbackCommand::execute()
         bool run =true;
         while (run)
         {
+            std::cout<<"========================================================================================================="<<std::endl;
             std::cout<<"1. Input Exercise   2. Input Meal   3. Check Feedback   4. Exit"<<std::endl;
             int choice;
             std::cin>>choice;
+            std::cout<<"========================================================================================================="<<std::endl;
         
             switch(choice)
             {

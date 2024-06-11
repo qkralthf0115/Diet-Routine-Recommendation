@@ -10,7 +10,7 @@ void MealRecord::inputRecord()
     bool run=true;
     while (run)
     {
-        std::cout<<"Enter the number of the days you kept the meal plan this week: (-1 to go back): ";
+        std::cout<<"Enter the number of the days you kept the meal plan this week "<<"\033[0;35m"<<"(-1 to go back)"<<"\033[0;37m"<<": ";
         std::cin>>complete;
         if (complete==-1)
         {
