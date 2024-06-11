@@ -26,11 +26,6 @@ void MealPlan::generateMeal(const std::vector<FoodItem>& foodList, double maxCal
 			break;
 		}
 	}
-	//This should be printed only once
-	if (mealItem.empty())
-	{
-		std::cout << "Cannot create a meal. Include more foods." << std::endl;
-	}
 }
 
 
@@ -44,4 +39,9 @@ void MealPlan::displayMeal() const
 	}
 	std::cout<<"("<<totC<<"kcal)"<<std::endl;
 
+}
+
+bool MealPlan::isEmpty() const
+{
+	return mealItem.empty();
 }
