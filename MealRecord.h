@@ -12,8 +12,9 @@ private:
     int complete;
     int currentWeek;
 public:
-    MealRecord();
+    MealRecord(std::shared_ptr<UserInfo> userInfo);
     void inputRecord();
     void updateWeeklyRecord();
     void printRecord() const;
+    bool isComplete() const;
 };

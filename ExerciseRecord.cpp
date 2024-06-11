@@ -2,33 +2,41 @@
 #include<iostream>
 #include<algorithm>
 
-ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo): userInfo(userInfo), exerciseCommand(exerciseCommand), complete(0), currentWeek(0) 
-{
-    int totalWeeks=userInfo->getWeek();
-    weeklyExerciseOX.resize(totalWeeks, false);
-}
+ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo): userInfo(userInfo), exerciseCommand(exerciseCommand), complete(0), currentWeek(0) {}
 
 void ExerciseRecord::inputRecord()
 {
-    std::cout<<"Enter the number of the days you exercised this week: ";
-    std::cin>>complete;
-    updateWeeklyRecord();
-    
+    bool run=true;
+    while (run)
+    {
+        std::cout<<"Enter the number of the days you exercised this week (-1 to go back): ";
+        std::cin>>complete;
+        if (complete==-1)
+        {
+            run=false;
+        }
+        else
+        {
+            updateWeeklyRecord();
+            if (isComplete())
+            {
+                std::cout<<"All weeks have been recorded. Check the feedback"<<std::endl;
+                run=false;
+            }
+        }
+    }
 }
 
 void ExerciseRecord::updateWeeklyRecord()
 {
     int totalWeeks=userInfo->getWeek();
+    weeklyExerciseOX.resize(totalWeeks, false);
     int targetDays=exerciseCommand.getDays();
 
     if (currentWeek<totalWeeks)
     {
         weeklyExerciseOX[currentWeek]=(complete>=targetDays);
         currentWeek+=1;
-    }
-    else
-    {
-        std::cout<<"All weeks have been recorded. Check the feedback"<<std::endl;
     }
 
 }
@@ -57,4 +65,9 @@ void ExerciseRecord::printRecord() const
         std::cout<<"You should exercise more!"<<std::endl;
     }
     
+}
+
+bool ExerciseRecord::isComplete() const
+{
+    return currentWeek>=userInfo->getWeek();
 }

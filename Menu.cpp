@@ -6,7 +6,7 @@ Menu::Menu() {
 	addCommand(std::unique_ptr<Command>(new InputInfoCommand(userInfo)));
 	addCommand(std::unique_ptr<Command>(new ExerciseCommand(userInfo)));
 	addCommand(std::unique_ptr<Command>(new MealCommand(userInfo)));
-	addCommand(std::unique_ptr<Command>)(new FeedbackCommand(userInfo));
+	addCommand(std::unique_ptr<Command>(new FeedbackCommand(userInfo)));
 }
 
 void Menu::addCommand(std::unique_ptr<Command> command) {
@@ -23,7 +23,7 @@ void Menu::executeCommand(int choice) {
 }
 
 void Menu::displayMenu() const {
-	std::cout << "\033[1;32m" << "Choose a command (1-3) or -1 to exit:" << "\033[1;37m" << std::endl;
+	std::cout << "\033[1;32m" << "Choose a command (1-4) or -1 to exit:" << "\033[1;37m" << std::endl;
 	for (int i = 0; i < this->commands.size(); i++) {
 		std::cout << i + 1 << ". " << this->commands[i]->getName() << std::endl;
 	}

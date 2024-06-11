@@ -18,4 +18,5 @@ public:
     void inputRecord() override;
     void updateWeeklyRecord() override;
     void printRecord() const override;
+    bool isComplete() const;
 };
