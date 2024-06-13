@@ -31,7 +31,7 @@ void ExerciseRecord::updateWeeklyRecord() {
 
     if (currentWeek < totalWeeks) {
         weeklyExerciseOX[currentWeek] = (complete >= targetDays);
-        currentWeek += 1;
+        ++currentWeek;
     }
 
 }
@@ -40,7 +40,7 @@ void ExerciseRecord::printRecord() const {
     double tot = weeklyExerciseOX.size();
     double success = std::count(weeklyExerciseOX.begin(), weeklyExerciseOX.end(), true);
     double rate = (success / tot) * 100;
-
+    std::cout << currentWeek << std::endl;
     for (int i = 0; i < weeklyExerciseOX.size();++i) {
         std::cout << "Week" << i + 1 << ": " << (weeklyExerciseOX[i] ? "Success" : "Failure") << std::endl;
     }
