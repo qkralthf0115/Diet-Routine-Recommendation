@@ -1,0 +1,1 @@
+g++ -std=c++11 -o main Main.cpp ExerciseCommand.cpp MealCommand.cpp InputInfoCommand.cpp FeedbackCommand.cpp UserInfo.cpp FoodDatabase.cpp DietPlan.cpp WorkoutDatabase.cpp WorkoutItem.cpp Menu.cpp FoodItem.cpp ExercisePlan.cpp MealPlan.cpp WorkoutPlan.cpp User.cpp UserManager.cpp MealRecord.cpp ExerciseRecord.cpp FeedbackComment.cpp
