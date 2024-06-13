@@ -35,10 +35,7 @@ void FeedbackCommand::execute() {
         }
     }
     else {
-        std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
-        std::cout << "\033[0;35m" << "Please input user information first." << "\033[0;37m" << std::endl;
-        std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
-
+        std::cout << "Please input user information first." << std::endl;
     }
 }
 
