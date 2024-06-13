@@ -1,5 +1,7 @@
 #pragma once
 #include<memory>
+#include <iomanip>
+#include <iostream>
 #include"Command.h"
 #include"UserInfo.h"
 
