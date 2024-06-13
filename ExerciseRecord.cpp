@@ -2,7 +2,9 @@
 #include<iostream>
 #include<algorithm>
 
-ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand) : userInfo(userInfo), exerciseCommand(exerciseCommand), complete(0), currentWeek(0) {}
+ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand)
+    : userInfo(userInfo), exerciseCommand(exerciseCommand), complete(0), currentWeek(0) {
+}
 
 void ExerciseRecord::inputRecord() {
     bool run = true;
