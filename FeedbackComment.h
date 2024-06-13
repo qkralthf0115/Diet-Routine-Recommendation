@@ -8,7 +8,8 @@ class FeedbackComment
 private:
     MealRecord mealRecord;
     ExerciseRecord exerciseRecord;
+    std::shared_ptr<UserInfo> userInfo;
 public:
-    FeedbackComment();
+    FeedbackComment(std::shared_ptr<UserInfo> userInfo);
     void generateComment();
 };

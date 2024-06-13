@@ -2,7 +2,7 @@
 #include"FeedbackComment.h"
 #include<iostream>
 
-FeedbackComment::FeedbackComment(): exerciseRecord(exerciseRecord), mealRecord(mealRecord){}
+FeedbackComment::FeedbackComment(std::shared_ptr<UserInfo> userInfo): userInfo(userInfo), mealRecord(userInfo), exerciseRecord(userInfo){}
 
 void FeedbackComment::generateComment()
 {
