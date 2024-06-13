@@ -14,7 +14,7 @@ private:
     MealRecord mealRecord;
     FeedbackComment feedbackComment;
 public:
-    FeedbackCommand(std::shared_ptr<UserInfo> userInfo);
+    FeedbackCommand(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand);
     void execute() override;
     std::string getName() const override;
 };

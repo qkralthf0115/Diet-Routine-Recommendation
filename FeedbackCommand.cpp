@@ -1,7 +1,7 @@
 #include"FeedbackCommand.h"
 #include <iostream>
 
-FeedbackCommand::FeedbackCommand(std::shared_ptr<UserInfo> userInfo) : userInfo(userInfo), exerciseRecord(userInfo), mealRecord(userInfo), feedbackComment(userInfo) {}
+FeedbackCommand::FeedbackCommand(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand) : userInfo(userInfo), exerciseRecord(userInfo, exerciseCommand), mealRecord(userInfo), feedbackComment(userInfo) {}
 
 void FeedbackCommand::execute() {
     std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
