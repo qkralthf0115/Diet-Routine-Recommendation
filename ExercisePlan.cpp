@@ -23,6 +23,7 @@ void ExercisePlan::printWeeklyPlan() const {
         std::cout << "\033[0;33m" << workout.getName() << "\033[0;37m" << " (" << workout.getCaloriesBurned() << " kcal)" << std::endl;
         std::cout << "Video Link: " << workout.getVideoLink() << std::endl;
       }
+      std::cout << std::endl;
     }
   }
 }
