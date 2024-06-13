@@ -2,7 +2,7 @@
 #include<iostream>
 #include<algorithm>
 
-ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand)
+ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo)
     : userInfo(userInfo), exerciseCommand(exerciseCommand), complete(0), currentWeek(0) {
 }
 

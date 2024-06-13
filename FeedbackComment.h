@@ -10,6 +10,6 @@ private:
     ExerciseRecord exerciseRecord;
     std::shared_ptr<UserInfo> userInfo;
 public:
-    FeedbackComment(std::shared_ptr<UserInfo> userInfo, ExerciseRecord& exerciseRecord, MealRecord& mealRecord);
+    FeedbackComment(std::shared_ptr<UserInfo> userInfo);
     void generateComment();
 };
