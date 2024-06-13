@@ -11,6 +11,7 @@ void FeedbackCommand::execute() {
         while (run) {
             std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
             std::cout << "1. Input Exercise   2. Input Meal   3. Check Feedback   4. Exit" << std::endl;
+            std::cout << "Enter your choice: ";
             int choice;
             std::cin >> choice;
             std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
