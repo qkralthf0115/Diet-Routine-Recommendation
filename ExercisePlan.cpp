@@ -11,18 +11,18 @@ void ExercisePlan::generateWeeklyPlan(const std::vector<WorkoutItem>& workoutLis
 }
 
 void ExercisePlan::printWeeklyPlan() const {
+  std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
   for (int i = 0; i < weeklyPlan.size(); ++i) {
-    std::cout << "Day " << (i + 1) << " Plan:" << std::endl;
+    std::cout << "\033[0;35m" << "Day " << (i + 1) << "\033[0;37m" << std::endl;
     const auto& dailyWorkouts = weeklyPlan[i].getDailyWorkouts();
     if (dailyWorkouts.empty()) {
       std::cout << "  No workouts available." << std::endl; // Debug statement
     }
     else {
       for (const auto& workout : dailyWorkouts) {
-        std::cout << "- " << workout.getName() << " (" << workout.getCaloriesBurned() << " calories)" << std::endl;
-        std::cout << "  Video Link: " << workout.getVideoLink() << std::endl << std::endl;
+        std::cout << "\033[0;33m" << workout.getName() << "\033[0;37m" << " (" << workout.getCaloriesBurned() << " kcal)" << std::endl;
+        std::cout << "Video Link: " << workout.getVideoLink() << std::endl;
       }
     }
-    std::cout << std::endl;
   }
 }

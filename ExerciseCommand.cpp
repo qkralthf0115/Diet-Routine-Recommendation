@@ -3,11 +3,14 @@
 ExerciseCommand::ExerciseCommand(std::shared_ptr<UserInfo> userInfo) : userInfo(userInfo) {}
 
 void ExerciseCommand::execute() {
+  std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
+  std::cout << "\033[0;33m" << "Exercise Recommendation" << "\033[0;37m" << std::endl;
   if (!userInfo->getName().empty()) {
     std::vector<BodyArea> targetAreas;
     std::string targetAreaStr;
 
-    std::cout << "Enter target body areas (UpperBody, LowerBody, Core, Back, FullBody) separated by spaces. Press Enter when finished:" << std::endl;
+    std::cout << "Enter target body areas" << "\033[0;35m" << " (UpperBody, LowerBody, Core, Back, FullBody)" << "\033[0;37m" << " separated by spaces. " << std::endl;
+    std::cout << ":";
     std::cin.ignore();
     std::getline(std::cin, targetAreaStr);
 
@@ -69,6 +72,6 @@ std::string ExerciseCommand::getName() const {
   return "Exercise Recommendation";
 }
 
-int ExerciseCommand::getDays() const{
+int ExerciseCommand::getDays() const {
   return exerciseDays;
 }

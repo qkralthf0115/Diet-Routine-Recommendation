@@ -2,7 +2,7 @@
 
 void UserManager::signup() {
   std::string id, password;
-  std::cout << "Signup" << std::endl;
+  std::cout << "\033[0;33m" << "Sign up" << "\033[0;37m" << std::endl;
   std::cout << "Enter ID: ";
   std::cin >> id;
   std::cout << "Enter Password: ";
@@ -13,7 +13,7 @@ void UserManager::signup() {
 
 std::shared_ptr<User> UserManager::login() {
   std::string id, password;
-  std::cout << "Login Page" << std::endl;
+  std::cout << "\033[0;33m" << "Log in" << "\033[0;37m" << std::endl;
   std::cout << "Enter ID: ";
   std::cin >> id;
   std::cout << "Enter Password: ";
@@ -31,9 +31,9 @@ std::shared_ptr<User> UserManager::login() {
 }
 
 void UserManager::displayMenu() {
-  std::cout << "Main Menu" << std::endl;
-  std::cout << "1. Signup" << std::endl;
-  std::cout << "2. Login" << std::endl;
+  std::cout << "\033[0;32m" << "Welcome to FitGenius!" << "\033[0;37m" << std::endl;
+  std::cout << "1. Sign up" << std::endl;
+  std::cout << "2. Log in" << std::endl;
   std::cout << "-1. Exit" << std::endl;
   std::cout << "Enter your choice: ";
 }

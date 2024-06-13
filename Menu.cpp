@@ -23,8 +23,10 @@ void Menu::executeCommand(int choice) {
 }
 
 void Menu::displayMenu() const {
+	std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
 	std::cout << "\033[1;32m" << "Choose a command (1-4) or -1 to exit:" << "\033[1;37m" << std::endl;
 	for (int i = 0; i < this->commands.size(); i++) {
 		std::cout << i + 1 << ". " << this->commands[i]->getName() << std::endl;
 	}
+	std::cout << "Enter your choice: ";
 }
