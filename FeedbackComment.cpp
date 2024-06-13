@@ -8,7 +8,7 @@ FeedbackComment::FeedbackComment(std::shared_ptr<UserInfo> userInfo, ExerciseRec
 
 void FeedbackComment::generateComment() {
     std::cout << "Exercise Record: " << std::endl;
-    if (exerciseRecord.isComplete()) {
+    if (exerciseRecord.getCurrentWeek()==userInfo->getWeek()) {
         exerciseRecord.printRecord();
     }
     else {

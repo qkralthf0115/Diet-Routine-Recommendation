@@ -14,9 +14,10 @@ private:
     const ExerciseCommand& exerciseCommand;
     std::vector<bool> weeklyExerciseOX;
 public:
-    ExerciseRecord(std::shared_ptr<UserInfo> userInfo);
+    ExerciseRecord(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand);
     void inputRecord() override;
     void updateWeeklyRecord() override;
     void printRecord() const override;
     bool isComplete() const;
+    int getCurrentWeek() const;
 };
