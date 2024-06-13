@@ -7,6 +7,7 @@
 #include "MealCommand.h"
 #include "InputInfoCommand.h"
 #include "UserInfo.h"
+#include"FeedbackCommand.h"
 
 class Menu
 {

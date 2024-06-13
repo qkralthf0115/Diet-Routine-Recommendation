@@ -4,6 +4,8 @@
 #include "ExerciseCommand.cpp"
 #include "MealCommand.cpp"
 #include "InputInfoCommand.cpp"
+#include "FeedbackCommand.cpp"
+#include"FeedbackCommand.h"
 #include "UserInfo.cpp"
 #include "FoodDatabase.cpp"
 #include "DietPlan.cpp"
@@ -17,6 +19,11 @@
 #include "WorkoutPlan.cpp"
 #include "User.cpp"
 #include "UserManager.cpp"
+#include "MealRecord.cpp"
+#include "ExerciseRecord.cpp"
+#include "FeedbackComment.cpp"
+#include "Record.h"
+
 
 int main() {
   UserManager userManager;

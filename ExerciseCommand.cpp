@@ -68,3 +68,7 @@ double ExerciseCommand::calculateDailyCalories() {
 std::string ExerciseCommand::getName() const {
   return "Exercise Recommendation";
 }
+
+int ExerciseCommand::getDays() const{
+  return exerciseDays;
+}

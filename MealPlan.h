@@ -11,4 +11,5 @@ public:
 	MealPlan();
 	void generateMeal(const std::vector<FoodItem>& foodList, double maxCalories);
 	void displayMeal()const;
+	bool isEmpty() const;
 };

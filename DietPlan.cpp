@@ -6,11 +6,20 @@ DietPlan::DietPlan() {}
 void DietPlan::generatePlan(const std::vector<FoodItem>& foodList, double maxCalories)
 {
 	weeklyPlan.clear();
+	bool creationfailed;
 	for (int i = 0; i < 21; ++i)
 	{
 		MealPlan oneMealPlan;
 		oneMealPlan.generateMeal(foodList, maxCalories);
+		if (oneMealPlan.isEmpty())
+		{
+			creationfailed=true;
+		}
 		weeklyPlan.push_back(oneMealPlan);
+	}
+	if (creationfailed==true)
+	{
+		std::cout << "Cannot create a meal. Include more foods." << std::endl;
 	}
 
 }
