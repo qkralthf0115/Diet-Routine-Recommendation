@@ -7,6 +7,6 @@ private:
   std::vector<WorkoutPlan> weeklyPlan;
 
 public:
-  void generateWeeklyPlan(const std::vector<WorkoutItem>& workoutList, int exerciseDays, int dailyCalories);
+  void generateWeeklyPlan(const std::vector<WorkoutItem>& workoutList, int exerciseDays, double dailyCalories);
   void printWeeklyPlan() const;
 };

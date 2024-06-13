@@ -6,13 +6,13 @@ class WorkoutItem {
 private:
   std::string name;
   BodyArea focusArea;
-  int caloriesBurned;
+  double caloriesBurned;
   std::string videoLink;
 
 public:
-  WorkoutItem(const std::string& name, BodyArea focusArea, int caloriesBurned, const std::string& videoLink);
+  WorkoutItem(const std::string& name, BodyArea focusArea, double caloriesBurned, const std::string& videoLink);
   std::string getName() const;
   BodyArea getFocusArea() const;
-  int getCaloriesBurned() const;
+  double getCaloriesBurned() const;
   std::string getVideoLink() const;
 };

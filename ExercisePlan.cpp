@@ -1,6 +1,6 @@
 #include "ExercisePlan.h"
 
-void ExercisePlan::generateWeeklyPlan(const std::vector<WorkoutItem>& workoutList, int exerciseDays, int dailyCalories) {
+void ExercisePlan::generateWeeklyPlan(const std::vector<WorkoutItem>& workoutList, int exerciseDays, double dailyCalories) {
   weeklyPlan.clear();
 
   for (int i = 0; i < exerciseDays; ++i) {
