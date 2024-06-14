@@ -2,12 +2,11 @@
 
 Menu::Menu() {
 	auto userInfo = std::make_shared<UserInfo>();
-	auto exerciseCommand = std::make_shared<ExerciseCommand>(userInfo);
 
 	addCommand(std::unique_ptr<Command>(new InputInfoCommand(userInfo)));
 	addCommand(std::unique_ptr<Command>(new ExerciseCommand(userInfo)));
 	addCommand(std::unique_ptr<Command>(new MealCommand(userInfo)));
-	addCommand(std::unique_ptr<Command>(new FeedbackCommand(userInfo, *exerciseCommand)));
+	addCommand(std::unique_ptr<Command>(new FeedbackCommand(userInfo)));
 }
 
 void Menu::addCommand(std::unique_ptr<Command> command) {

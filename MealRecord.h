@@ -16,5 +16,4 @@ public:
     void inputRecord();
     void updateWeeklyRecord();
     void printRecord() const;
-    bool isComplete() const;
 };

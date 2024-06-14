@@ -7,33 +7,22 @@ ExerciseRecord::ExerciseRecord(std::shared_ptr<UserInfo> userInfo)
 }
 
 void ExerciseRecord::inputRecord() {
-    bool run = true;
-    while (run) {
-        std::cout << "Enter the number of the days you exercised this week " << "\033[0;35m" << "(-1 to go back)" << "\033[0;37m" << ": ";
-        std::cin >> complete;
-        if (complete == -1) {
-            run = false;
-        }
-        else {
-            updateWeeklyRecord();
-            if (isComplete()) {
-                std::cout << "All weeks have been recorded. Check the feedback" << std::endl;
-                run = false;
-            }
-        }
-    }
+    std::cout << "Enter the number of the days you exercised this week: ";
+    std::cin >> complete;
+    updateWeeklyRecord();
 }
 
 void ExerciseRecord::updateWeeklyRecord() {
     int totalWeeks = userInfo->getWeek();
-    weeklyExerciseOX.resize(totalWeeks, false);
     int targetDays = exerciseCommand.getDays();
 
     if (currentWeek < totalWeeks) {
         weeklyExerciseOX[currentWeek] = (complete >= targetDays);
-        ++currentWeek;
+        currentWeek += 1;
     }
-
+    else {
+        std::cout << "All weeks have been recorded. Check the feedback" << std::endl;
+    }
 }
 
 void ExerciseRecord::printRecord() const {
@@ -55,8 +44,4 @@ void ExerciseRecord::printRecord() const {
         std::cout << "You should exercise more!" << std::endl;
     }
 
-}
-
-bool ExerciseRecord::isComplete() const {
-    return currentWeek >= userInfo->getWeek();
 }
