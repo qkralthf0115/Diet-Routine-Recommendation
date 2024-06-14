@@ -28,6 +28,11 @@ void MealRecord::updateWeeklyRecord() {
         ++currentWeek;
     }
 
+    if (currentWeek==userInfo->getWeek())
+    {
+        printRecord();
+    }
+
 }
 
 void MealRecord::printRecord() const {
