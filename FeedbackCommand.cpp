@@ -2,7 +2,7 @@
 #include <iostream>
 
 FeedbackCommand::FeedbackCommand(std::shared_ptr<UserInfo> userInfo, const ExerciseCommand& exerciseCommand)
-    : userInfo(userInfo), exerciseRecord(userInfo, exerciseCommand), mealRecord(userInfo), feedbackComment(userInfo, exerciseRecord, mealRecord) {
+    : userInfo(userInfo), exerciseRecord(userInfo, exerciseCommand), mealRecord(userInfo) {
 }
 
 void FeedbackCommand::execute() {
@@ -12,7 +12,7 @@ void FeedbackCommand::execute() {
         bool run = true;
         while (run) {
             std::cout << std::setfill('=') << std::setw(75) << "=" << std::endl;
-            std::cout << "1. Input Exercise   2. Input Meal   3. Check Feedback   4. Exit" << std::endl;
+            std::cout << "1. Input Exercise   2. Input Meal   3. Exit" << std::endl;
             std::cout << "Enter your choice: ";
             int choice;
             std::cin >> choice;
@@ -21,14 +21,12 @@ void FeedbackCommand::execute() {
             switch (choice) {
             case 1:
                 exerciseRecord.inputRecord();
+                exerciseRecord.updateWeeklyRecord();
                 break;
             case 2:
                 mealRecord.inputRecord();
                 break;
             case 3:
-                feedbackComment.generateComment();
-                break;
-            case 4:
                 run = false;
                 break;
             default:

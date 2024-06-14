@@ -16,10 +16,7 @@ void ExerciseRecord::inputRecord() {
         }
         else {
             updateWeeklyRecord();
-            if (isComplete()) {
-                std::cout << "All weeks have been recorded. Check the feedback" << std::endl;
-                run = false;
-            }
+            
         }
     }
 }
@@ -32,6 +29,11 @@ void ExerciseRecord::updateWeeklyRecord() {
     if (currentWeek < totalWeeks) {
         weeklyExerciseOX[currentWeek] = (complete >= targetDays);
         ++currentWeek;
+    }
+
+    if (currentWeek==userInfo->getWeek())
+    {
+        printRecord();
     }
 
 }
@@ -55,12 +57,4 @@ void ExerciseRecord::printRecord() const {
         std::cout << "You should exercise more!" << std::endl;
     }
 
-}
-
-bool ExerciseRecord::isComplete() const {
-    return currentWeek >= userInfo->getWeek();
-}
-
-int ExerciseRecord::getCurrentWeek() const {
-    return currentWeek;
 }

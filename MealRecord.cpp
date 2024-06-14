@@ -16,10 +16,6 @@ void MealRecord::inputRecord() {
         }
         else {
             updateWeeklyRecord();
-            if (isComplete()) {
-                std::cout << "All weeks have been recorded. Check the feedback" << std::endl;
-                run = false;
-            }
         }
     }
 }
@@ -51,8 +47,4 @@ void MealRecord::printRecord() const {
     else {
         std::cout << "You should eat less!" << std::endl;
     }
-}
-
-bool MealRecord::isComplete() const {
-    return currentWeek >= userInfo->getWeek();
 }
